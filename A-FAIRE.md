@@ -19,7 +19,7 @@ Aucune : pas de chat IA (ADR 0003 abandonné), pas de service à clé.
 | Service | Usage | Statut |
 |---|---|---|
 | GitHub `Ariel013/cv-interactif` (public) | Dépôt | à créer — sur confirmation de Kevin |
-| Vercel | Hébergement | projet à créer |
+| Vercel | Hébergement, sous-domaine `*.vercel.app` (décidé le 2026-10-25) | projet à créer |
 
 ## 3. Migrations à appliquer
 
@@ -29,8 +29,9 @@ Aucune : pas de base de données.
 
 | Question | Qui tranche | Échéance | Impact si non tranché |
 |---|---|---|---|
-| Valider les trois mots et la direction de style proposés le 2026-10-25 | Kevin | avant `PRODUCT.md` | pas de brief, pas de code |
-| Langue : français seul en V1, anglais ensuite (recommandé) | Kevin | avant le brief | périmètre du contenu |
+| Compléter le CV maître : fiche courte par projet, faits du Strongman, lignes « alternance » (brief §8) | Kevin, dans `optimisation_cv` | avant le lot 2 | mur LED sans contenu |
+| Valider la version anglaise du CV maître (ADR 0005) | Kevin, dans `optimisation_cv` | avant le lot 1 | pas d'anglais |
+| Fournir la photo à utiliser (celle du Portfolio ?) | Kevin | lot 1 | section contact sans photo |
 | Le CV maître d'`optimisation_cv` dit-il bien que la FIBDA est une fédération ? Son journal notait « non fédérale » | Kevin, dans `optimisation_cv` | avant publication | fait contradictoire entre les deux sites |
 | Archiver le dépôt GitHub `Curriculum` | Kevin | à la mise en ligne | deux CV web en ligne, dont un faux |
 

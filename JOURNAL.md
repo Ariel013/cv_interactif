@@ -19,11 +19,12 @@ Carte des documents : `CLAUDE.md` (règles), `A-FAIRE.md` (actions hors code),
 *(Mis à jour le 2026-10-25.)*
 
 - **Version en prod** : aucune.
-- **État des branches** : `main` = `staging` = `dev` (commit d'amorce), local
-  seul, pas de dépôt distant. Branche `docs/modes-et-telephone` en cours.
-- **Prochaine action** : sur validation des trois mots et du style, écrire
-  `PRODUCT.md` (`impeccable teach`), puis le brief `impeccable shape` des deux
-  modes. Fin : brief validé par Kevin.
+- **État des branches** : `main` = `staging` (amorce) ; `dev` = amorce +
+  ADR 0004 ; local seul, pas de dépôt distant. Branche `docs/produit-et-langues`
+  en cours.
+- **Prochaine action** : faire valider le brief V1 par Kevin, puis lot 1
+  (synchronisation FR + EN, page 2D, bascules). Fin du lot 1 : page servie en
+  local, regardée à 375, 768 et 1440 px.
 
 ## 📓 Journal des sessions
 
@@ -42,8 +43,9 @@ Carte des documents : `CLAUDE.md` (règles), `A-FAIRE.md` (actions hors code),
   branches `staging` et `dev` créées.
 - Puis Kevin revient sur trois points : téléphone publié ; chat IA abandonné
   (clé payante, ADR 0003 abandonné) ; deux modes au choix, page et terminal
-  (ADR 0004). Trois mots et direction de style proposés, en attente de
-  validation.
+  (ADR 0004). Direction de style « Jour de compétition » validée, sans les
+  trois mots de personnalité (retirés à sa demande). Français et anglais au
+  choix du visiteur (ADR 0005). `PRODUCT.md` écrit, brief V1 proposé.
 
 ## 🎓 Leçons apprises
 
