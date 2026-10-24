@@ -19,10 +19,11 @@ Carte des documents : `CLAUDE.md` (règles), `A-FAIRE.md` (actions hors code),
 *(Mis à jour le 2026-10-25.)*
 
 - **Version en prod** : aucune.
-- **État des branches** : dépôt local seul, aucun commit, pas de dépôt distant.
-- **Prochaine action** : écrire `PRODUCT.md` (`impeccable teach`) avec les
-  réponses front de Kevin, puis le brief `impeccable shape` de la page. Fin :
-  brief validé par Kevin.
+- **État des branches** : `main` = `staging` = `dev` (commit d'amorce), local
+  seul, pas de dépôt distant. Branche `docs/modes-et-telephone` en cours.
+- **Prochaine action** : sur validation des trois mots et du style, écrire
+  `PRODUCT.md` (`impeccable teach`), puis le brief `impeccable shape` des deux
+  modes. Fin : brief validé par Kevin.
 
 ## 📓 Journal des sessions
 
@@ -37,7 +38,12 @@ Carte des documents : `CLAUDE.md` (règles), `A-FAIRE.md` (actions hors code),
   `cv-interactif` ; scène 3D « mur LED du Strongman » ; chat intégré ; pas de
   téléphone ; projets freelance en projets réalisés ; Master = M1 ; la FIBDA
   est une fédération ; le lien sera aussi envoyé par e-mail.
-- Décisions techniques : ADR 0001 à 0003.
+- Décisions techniques : ADR 0001 à 0003. Commit d'amorce validé par Kevin ;
+  branches `staging` et `dev` créées.
+- Puis Kevin revient sur trois points : téléphone publié ; chat IA abandonné
+  (clé payante, ADR 0003 abandonné) ; deux modes au choix, page et terminal
+  (ADR 0004). Trois mots et direction de style proposés, en attente de
+  validation.
 
 ## 🎓 Leçons apprises
 

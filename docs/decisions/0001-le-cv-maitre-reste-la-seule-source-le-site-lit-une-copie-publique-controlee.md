@@ -16,12 +16,13 @@ téléphone et un e-mail.
 ## Décision
 
 - Un script de synchronisation lit le CV maître et écrit dans ce dépôt une
-  copie publique (`contenu/cv.json`) : seulement les champs publiables, sans
-  téléphone, avec une empreinte du fichier source.
+  copie publique (`contenu/cv.json`) : seulement les champs publiables, avec
+  une empreinte du fichier source. Téléphone et e-mail en font partie : Kevin a
+  choisi de les publier (2026-10-25).
 - Il applique les seules transformations décidées ici : les points de
   l'expérience « Freelance » deviennent des projets réalisés (décision de Kevin,
   2026-10-25) ; la section « réserve » n'est jamais copiée.
-- Le site et le chat ne lisent que cette copie, validée par un schéma au build.
+- Les deux modes du site ne lisent que cette copie, validée par un schéma au build.
   Les textes d'interface (libellés, titres) vivent dans le code ; les faits,
   jamais.
 - Un contrôle en local signale quand l'empreinte ne correspond plus au CV
