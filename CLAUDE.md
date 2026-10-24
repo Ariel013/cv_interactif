@@ -17,9 +17,9 @@ aucun code.
 
 ## Où en est le projet — LIS CECI AVANT TOUTE CHOSE
 
-- **Phase actuelle : amorce.** Pas de code, pas de `PRODUCT.md` validé, pas de
-  brief de design. Aucun écran ne se code avant un brief `impeccable shape`
-  validé par Kevin.
+- **Phase actuelle : amorce.** Pas de code. `PRODUCT.md` écrit ; brief de
+  design `docs/brief-v1.md` proposé. Aucun écran ne se code avant sa
+  validation par Kevin.
 - Remplace le dépôt `Curriculum` (dérivé d'un modèle open-source), abandonné :
   on n'en reprend ni le code ni le contenu.
 - Pas de chat IA : abandonné le 2026-10-25 (ADR 0003). Le mode terminal le
@@ -41,7 +41,8 @@ aucun code.
 |---|---|
 | `JOURNAL.md` | **En tout premier, à chaque session.** |
 | `A-FAIRE.md` | Pour les actions manuelles/externes en attente |
-| `PRODUCT.md` | Avant tout travail de design (quand il existera) |
+| `PRODUCT.md` | Avant tout travail de design |
+| `docs/brief-v1.md` | Avant de coder un écran de la V1 |
 | `docs/workflow-git.md` | Avant tout commit |
 | `docs/decisions/` | Avant de remettre en cause un choix déjà fait |
 
@@ -60,8 +61,9 @@ aucun code.
    3D est un bonus qui ne bloque jamais l'accès au texte.
 5. **Les missions freelance de 2026 s'affichent comme projets réalisés**, pas
    comme une expérience « Freelance » (décision de Kevin, 2026-10-25).
-6. **Les deux modes disent la même chose.** Page et terminal lisent le même
-   contenu ; aucun fait n'existe dans un seul des deux.
+6. **Les deux modes et les deux langues disent la même chose.** Page et
+   terminal, français et anglais lisent le même contenu ; aucun fait n'existe
+   dans un seul des quatre (ADR 0004, 0005).
 7. **Sur une décision d'architecture ambiguë, s'arrêter et demander** plutôt
    que d'improviser silencieusement.
 
