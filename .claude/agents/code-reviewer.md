@@ -12,7 +12,8 @@ Vérifie, dans cet ordre :
    maître, aucune donnée privée, le contenu lisible sans la 3D.
 2. Les faits ne sont jamais écrits en dur dans un composant : ils viennent de
    `contenu/cv.json` (ADR 0001). Les composants ne contiennent que du rendu.
-3. La scène 3D se charge après le contenu et a son repli (ADR 0002).
+3. La scène 3D se charge après le contenu et a son repli (ADR 0002). Page et
+   terminal affichent les mêmes faits (ADR 0004).
 4. Accessibilité : contraste, textes alternatifs, navigation au clavier,
    `prefers-reduced-motion` respecté.
 5. Français dans les textes et le code du domaine ; pas de tiret cadratin dans

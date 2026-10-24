@@ -10,9 +10,10 @@ référence — lis aussi celles qui concernent ta tâche avant de coder.
 ## Le projet en une phrase
 
 Le CV web de Kevin (Ariel Kevin SODJINOU), envoyé par lien dans ses
-candidatures d'alternance fullstack et IA : une page qui se lit en 30 secondes,
-une scène 3D signature (le mur LED du Strongman, un écran par projet) et un
-chat « Demande à mon CV ». Stade : amorce, aucun code.
+candidatures d'alternance fullstack et IA. Deux lectures au choix : une page
+qui se lit en 30 secondes avec une scène 3D signature (le mur LED du Strongman,
+un écran par projet), et un mode terminal pour un public tech. Stade : amorce,
+aucun code.
 
 ## Où en est le projet — LIS CECI AVANT TOUTE CHOSE
 
@@ -21,14 +22,16 @@ chat « Demande à mon CV ». Stade : amorce, aucun code.
   validé par Kevin.
 - Remplace le dépôt `Curriculum` (dérivé d'un modèle open-source), abandonné :
   on n'en reprend ni le code ni le contenu.
-- Le chat attend une clé d'API et un plafond de dépense (`A-FAIRE.md`).
+- Pas de chat IA : abandonné le 2026-10-25 (ADR 0003). Le mode terminal le
+  remplace, sans modèle ni clé d'API (ADR 0004).
 
 ## Stack technique
 
 - Next.js (App Router) + TypeScript, Tailwind, hébergé sur Vercel.
 - 3D : React Three Fiber, une seule scène, chargée à la demande, avec repli
   statique (ADR 0002).
-- Chat : une route serveur, contexte = le CV public (ADR 0003).
+- Mode terminal : commandes prédéfinies, réponses tirées du même contenu,
+  aucun appel serveur (ADR 0004).
 - Contenu : copie publique du CV maître d'`optimisation_cv` (ADR 0001).
   Pas de base de données.
 
@@ -45,19 +48,20 @@ chat « Demande à mon CV ». Stade : amorce, aucun code.
 ## Règles d'or, non négociables
 
 1. **Ne jamais faire `git push` sans confirmation explicite, à chaque fois.**
-2. **Aucun fait hors du CV maître.** Tout ce que le site ou le chat affirme
+2. **Aucun fait hors du CV maître.** Tout ce que le site affirme
    vient de `~/PROJETS/optimisation_cv/cv/contenu.json`, via la copie publique.
    Pas de chiffre du portfolio, pas de formulation enjolivée. Un fait absent du
    CV maître s'y ajoute d'abord, jamais directement ici.
-3. **Dépôt public : aucune donnée privée.** Ni téléphone, ni adresse, ni
-   secret. L'e-mail ne s'écrit pas en clair dans le HTML.
+3. **Dépôt public : seulement ce que Kevin a choisi de publier.** Téléphone et
+   e-mail publiés (décision du 2026-10-25), en liens cliquables. Jamais
+   d'adresse postale ni de secret.
 4. **Le contenu passe avant la 3D.** Le CV se lit sans WebGL, sans JavaScript
    lourd, sur un téléphone modeste et dans l'aperçu d'un client mail. La scène
    3D est un bonus qui ne bloque jamais l'accès au texte.
 5. **Les missions freelance de 2026 s'affichent comme projets réalisés**, pas
    comme une expérience « Freelance » (décision de Kevin, 2026-10-25).
-6. **Le chat ne répond que sur le CV**, refuse le reste, ne garde aucune
-   conversation, et ne peut pas dépasser son plafond de dépense.
+6. **Les deux modes disent la même chose.** Page et terminal lisent le même
+   contenu ; aucun fait n'existe dans un seul des deux.
 7. **Sur une décision d'architecture ambiguë, s'arrêter et demander** plutôt
    que d'improviser silencieusement.
 

@@ -1,6 +1,10 @@
 # 0003 — Le chat reçoit le CV entier en contexte, sans base vectorielle
 
-**Statut** : proposé (fournisseur et plafond à confirmer par Kevin)
+**Statut** : abandonné le 2026-10-25, remplacé par 0004
+
+> Kevin renonce au chat : il exige une clé d'API payante, un plafond et une
+> surveillance pour un gain incertain. Le mode terminal (0004) donne
+> l'interactivité sans modèle. Ce qui suit reste comme trace du choix étudié.
 
 ## Contexte
 
