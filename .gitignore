@@ -1,0 +1,28 @@
+# Dépendances et builds
+node_modules/
+.next/
+out/
+dist/
+*.tsbuildinfo
+next-env.d.ts
+
+# Environnement et secrets — jamais commités
+.env
+.env.*
+!.env.example
+
+# Vercel
+.vercel/
+
+# Outils de navigateur
+.playwright-cli/
+.playwright-mcp/
+test-results/
+playwright-report/
+
+# Outils de design
+.impeccable/
+
+# Système
+.DS_Store
+*.log
