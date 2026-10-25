@@ -465,6 +465,47 @@ function Decor({ zones }: { zones: Zone[] }) {
   );
 }
 
+// Le guide vers le contact : un triangle posé au sol juste devant le
+// personnage, qui pointe toujours vers le portail de contact, où qu'on aille.
+// Il s'efface une fois arrivé.
+function Boussole({ position, vers }: { position: React.RefObject<THREE.Vector3>; vers: { x: number; z: number } }) {
+  const groupe = useRef<THREE.Group>(null);
+  const fleche = useRef<THREE.Mesh>(null);
+  const temps = useRef(0);
+  const forme = useMemo(() => {
+    const f = new THREE.Shape();
+    f.moveTo(0, 0.5);
+    f.lineTo(-0.36, -0.2);
+    f.lineTo(0, -0.06);
+    f.lineTo(0.36, -0.2);
+    f.closePath();
+    return f;
+  }, []);
+
+  useFrame((_, delta) => {
+    const g = groupe.current;
+    if (!g || !fleche.current) return;
+    const p = position.current;
+    const dx = vers.x - p.x;
+    const dz = vers.z - p.z;
+    g.visible = Math.hypot(dx, dz) > RAYON_DECOUVERTE;
+    g.position.set(p.x, 0.05, p.z);
+    g.rotation.y = Math.atan2(dx, dz);
+    // Petit va-et-vient vers l'avant, pour attirer l'œil sans gêner.
+    temps.current += delta;
+    fleche.current.position.z = 1.15 + Math.sin(temps.current * 4) * 0.1;
+  });
+
+  return (
+    <group ref={groupe}>
+      <mesh ref={fleche} rotation={[Math.PI / 2, 0, 0]}>
+        <shapeGeometry args={[forme]} />
+        <meshBasicMaterial color={couleurs.cyan} side={THREE.DoubleSide} transparent opacity={0.9} />
+      </mesh>
+    </group>
+  );
+}
+
 function Jeu({ zones, decouverts, titres, commandes, manette, surProche, surDeplacement, demarre }: Omit<Props, "surPret" | "surPerte">) {
   const position = useRef(new THREE.Vector3(0, 0, 1.2));
   const cible = useRef<THREE.Vector3 | null>(null);
@@ -477,6 +518,7 @@ function Jeu({ zones, decouverts, titres, commandes, manette, surProche, surDepl
   const portrait = size.width < size.height;
   const decalageCamera = useMemo(() => new THREE.Vector3(0, portrait ? 24 : 17, portrait ? 19 : 15), [portrait]);
   const orbite = useRef(0);
+  const contact = zones.find((z) => z.type === "contact");
 
   useEffect(() => {
     camera.position.copy(position.current).add(decalageCamera).add(new THREE.Vector3(0, 10, 10));
@@ -609,6 +651,7 @@ function Jeu({ zones, decouverts, titres, commandes, manette, surProche, surDepl
         );
       })}
       <Personnage position={position} enMouvement={enMouvement} />
+      {demarre && contact && <Boussole position={position} vers={contact} />}
       <ContactShadows position={[0, 0.02, 0]} scale={RAYON_ILE * 2} resolution={1024} blur={2.4} opacity={0.35} far={6} />
     </>
   );
