@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { preload } from "react-dom";
-import { cheminPdf, estLangue, lireContenu, nomAffiche } from "@/lib/contenu";
+import { cheminPdf, estLangue, lireContenu, nomAffiche, portfolioClassique } from "@/lib/contenu";
 import { lireTextes } from "@/lib/textes";
 import { Barre } from "@/components/Barre";
 import { Modalites, Monde } from "@/components/monde/Monde";
@@ -54,7 +54,7 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
                 <a href={`/${lang}/terminal`} className="hud-bouton">
                   {t.monde.terminal}
                 </a>
-                <a href={identite.liens.portfolio} className="hud-bouton titre-jeu-large">
+                <a href={portfolioClassique} className="hud-bouton titre-jeu-large">
                   {t.monde.portfolio} <span aria-hidden="true">→</span>
                 </a>
               </div>

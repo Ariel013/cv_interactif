@@ -75,6 +75,11 @@ const capitaliser = (mot: string) => mot.charAt(0) + mot.slice(1).toLowerCase();
 export const nomAffiche = contenu.fr.identite.nom.split(" ").map(capitaliser).join(" ");
 export const initiales = contenu.fr.identite.nom.split(" ").map((mot) => mot.charAt(0)).join("");
 
+// Le portfolio classique, proposé sur l'écran titre. Le lien « Portfolio » du
+// CV maître pointe désormais vers ce site-ci (un seul lien sur le CV, qui
+// propose les deux expériences) : l'adresse du classique vit donc ici.
+export const portfolioClassique = "https://whoisariel.vercel.app/";
+
 
 // PDF du CV par langue, générés par la synchronisation.
 export const cheminPdf: Record<Langue, string> = {
