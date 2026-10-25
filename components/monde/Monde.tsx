@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { nomAffiche, type ContenuLangue, type Langue } from "@/lib/contenu";
 import type { Textes } from "@/lib/textes";
 import { construireZones, type Zone } from "./zones";
@@ -58,6 +58,8 @@ export function Monde({
   const zones = useMemo(() => construireZones(contenu), [contenu]);
   const [mode, setMode] = useState<"attente" | "3d" | "fixe">("attente");
   const [prete, setPrete] = useState(false);
+  // Au-delà de ce délai, l'écran titre s'affiche même si l'île charge encore.
+  const [delaiDepasse, setDelaiDepasse] = useState(false);
   const [decouverts, setDecouverts] = useState<Set<string>>(new Set());
   const [proche, setProche] = useState<string | null>(null);
   const [ferme, setFerme] = useState<string | null>(null);
@@ -80,6 +82,12 @@ export function Monde({
   }, []);
 
   useEffect(() => {
+    if (mode !== "3d" || prete) return;
+    const minuterie = setTimeout(() => setDelaiDepasse(true), 10000);
+    return () => clearTimeout(minuterie);
+  }, [mode, prete]);
+
+  useEffect(() => {
     if (!zone) return;
     const surTouche = (e: KeyboardEvent) => {
       if (e.key === "Escape") setFerme(zone.id);
@@ -87,6 +95,8 @@ export function Monde({
     window.addEventListener("keydown", surTouche);
     return () => window.removeEventListener("keydown", surTouche);
   }, [zone]);
+
+  const marquerPrete = useCallback(() => setPrete(true), []);
 
   function surProche(id: string | null) {
     setProche(id);
@@ -128,7 +138,7 @@ export function Monde({
             manette={manette}
             surProche={surProche}
             surDeplacement={() => setABouge(true)}
-            surPret={() => setPrete(true)}
+            surPret={marquerPrete}
             surPerte={() => setMode("fixe")}
             demarre={demarre}
           />
@@ -136,7 +146,29 @@ export function Monde({
         </div>
       )}
 
-      {!demarre && (
+      {!prete && !delaiDepasse && (
+        <div className="chargement" role="status">
+          <span className="chargement-logo" aria-hidden="true">
+            {nomAffiche
+              .split(" ")
+              .map((m) => m[0])
+              .join("")}
+          </span>
+          <p className="chargement-nom">{nomAffiche}</p>
+          <p className="chargement-texte">{textes.chargement}</p>
+          <span className="chargement-barre" aria-hidden="true">
+            <span />
+          </span>
+          <p className="chargement-raccourcis">
+            <a href={pdf} download>
+              {textes.pdf}
+            </a>
+            <a href={`/${langue}/terminal`}>{textes.terminal}</a>
+          </p>
+        </div>
+      )}
+
+      {!demarre && (prete || delaiDepasse) && (
         <div className="titre-jeu">
           <p className="titre-jeu-nom">
             {contenu.identite.nom.split(" ").slice(0, -1).join(" ")} <span>{contenu.identite.nom.split(" ").at(-1)}</span>
@@ -216,8 +248,7 @@ export function Monde({
 
       {demarre && !aBouge && !zone && (
         <p className="hud hud-consigne">
-          <span className="consigne-souris">{textes.consigne}</span>
-          <span className="consigne-tactile">{textes.consigneTactile}</span>
+          <span>{textes.consigne}</span>
           <kbd>↑</kbd>
           <kbd>←</kbd>
           <kbd>↓</kbd>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef } from "react";
+import { Suspense, useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame, useThree, type ThreeEvent } from "@react-three/fiber";
 import { ContactShadows, Float, RoundedBox, Text } from "@react-three/drei";
@@ -512,6 +512,15 @@ function Jeu({ zones, decouverts, titres, commandes, manette, surProche, surDepl
   );
 }
 
+function Pret({ surPret }: { surPret: () => void }) {
+  useEffect(() => {
+    // Une image plus tard : la scène est dessinée avant d'être montrée.
+    const id = requestAnimationFrame(() => surPret());
+    return () => cancelAnimationFrame(id);
+  }, [surPret]);
+  return null;
+}
+
 export default function SceneMonde(props: Props) {
   return (
     <Canvas
@@ -521,7 +530,6 @@ export default function SceneMonde(props: Props) {
       camera={{ fov: 38, near: 0.1, far: 200 }}
       onCreated={({ gl }) => {
         gl.domElement.addEventListener("webglcontextlost", () => props.surPerte(), { once: true });
-        props.surPret();
       }}
       aria-hidden="true"
     >
@@ -536,6 +544,7 @@ export default function SceneMonde(props: Props) {
         shadow-camera-top={26}
         shadow-camera-bottom={-26}
       />
+      <Suspense fallback={null}>
       <Jeu
         zones={props.zones}
         decouverts={props.decouverts}
@@ -546,6 +555,10 @@ export default function SceneMonde(props: Props) {
         surDeplacement={props.surDeplacement}
         demarre={props.demarre}
       />
+        {/* Monté seulement quand tout ce qui se charge (police des textes 3D)
+            est prêt : c'est le vrai signal « l'île est prête ». */}
+        <Pret surPret={props.surPret} />
+      </Suspense>
     </Canvas>
   );
 }
