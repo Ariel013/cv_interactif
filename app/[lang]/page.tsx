@@ -54,6 +54,9 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
                 <a href={`/${lang}/terminal`} className="hud-bouton">
                   {t.monde.terminal}
                 </a>
+                <a href={identite.liens.portfolio} className="hud-bouton titre-jeu-large">
+                  {t.monde.portfolio} <span aria-hidden="true">→</span>
+                </a>
               </div>
             </section>
           }

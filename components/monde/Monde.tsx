@@ -178,8 +178,13 @@ export function Monde({
             <a href={`/${langue}/terminal`} className="hud-bouton bouton-terminal">
               <span aria-hidden="true">&gt;_</span> {textes.terminal}
             </a>
-            <a href={pdf} className="hud-bouton titre-jeu-pdf" download>
+            <a href={pdf} className="hud-bouton" download>
               {textes.pdf}
+            </a>
+            {/* L'autre expérience : le portfolio classique, pour qui veut
+                aller droit aux projets. Un seul lien suffit alors sur le CV. */}
+            <a href={contenu.identite.liens.portfolio} className="hud-bouton">
+              {textes.portfolio} <span aria-hidden="true">→</span>
             </a>
           </div>
           <p className="titre-jeu-note">{textes.duree}</p>
