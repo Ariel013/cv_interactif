@@ -65,6 +65,7 @@ export function Monde({
   const [commandes, setCommandes] = useState<Commandes>({ allerA: null });
   const [choix, setChoix] = useState("");
   const choixRef = useRef<HTMLSelectElement>(null);
+  const ileRef = useRef<HTMLElement>(null);
   const aDecouvrir = zones.filter((z) => z.type !== "depart");
   const nbDecouverts = aDecouvrir.filter((z) => decouverts.has(z.id)).length;
   const zone = zones.find((z) => z.id === proche && z.id !== ferme) ?? null;
@@ -109,7 +110,7 @@ export function Monde({
   const quartiers = { projets: textes.quartiers.projets, parcours: textes.quartiers.parcours, competences: textes.quartiers.competences, contact: textes.quartiers.contact };
 
   return (
-    <section className="monde" data-prete={prete || undefined} aria-label={textes.titreIle}>
+    <section ref={ileRef} tabIndex={-1} className="monde" data-prete={prete || undefined} aria-label={textes.titreIle}>
       <h1 className="sr-only">
         {nomAffiche}, {contenu.identite.titre}
       </h1>
@@ -143,7 +144,9 @@ export function Monde({
           <div className="titre-jeu-actions">
             <button type="button" className="hud-bouton hud-bouton-plein titre-jeu-jouer" onClick={() => {
                 setDemarre(true);
-                requestAnimationFrame(() => choixRef.current?.focus());
+                // Le focus va à l'île (pas au menu « Aller à… ») : les flèches
+                // doivent déplacer le personnage, pas changer d'option.
+                requestAnimationFrame(() => ileRef.current?.focus());
               }}
               autoFocus
             >
