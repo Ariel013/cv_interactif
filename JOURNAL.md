@@ -21,12 +21,13 @@ Carte des documents : `CLAUDE.md` (règles), `A-FAIRE.md` (actions hors code),
 - **Version en prod** : https://iamariel.vercel.app (v1.0 + `vercel.json`),
   vérifiée le 2026-10-25 en ligne : pages FR/EN île et terminal en 200, `/`
   redirige selon la langue, PDF, image de partage, CSP et en-têtes servis,
-  île chargée sans erreur console. Correctif des flèches en ligne et vérifié.
+  île chargée sans erreur console. Flèches et joystick tactile en ligne,
+  vérifiés (émulation tactile 390 px : déplacement, page immobile).
 - **État des branches** : `main` = `staging` (amorce) ; `dev` porte l'île et
   le terminal ; dépôt distant `Ariel013/cv_interactif` (public), Vercel
   déploie `main`.
-- **Prochaine action** : pousser le joystick mobile (sur confirmation), puis
-  que Kevin l'essaie sur son téléphone.
+- **Prochaine action** : pousser l'écran de chargement (sur confirmation),
+  puis retour de Kevin sur téléphone.
 
 ## 📓 Journal des sessions
 
@@ -146,6 +147,18 @@ Carte des documents : `CLAUDE.md` (règles), `A-FAIRE.md` (actions hors code),
 - L'ancien CV (dépôt `Curriculum`) répond toujours sur GitHub Pages
   (`ariel013.github.io/Curriculum`, « Interactive Resume ») ; Kevin garde le
   dépôt.
+
+### 2026-10-25 (suite) — Écran de chargement
+
+- Retour de Kevin : l'île met du temps à apparaître, un visiteur pressé ne la
+  voit pas. Ajout d'un écran de chargement (logo, nom, barre, raccourcis PDF
+  et terminal) jusqu'à ce que l'île soit réellement prête (police des textes
+  3D chargée), puis l'écran titre ; au-delà de 10 s, l'écran titre s'affiche
+  quand même. Police 3D réduite aux caractères utilisés (327 Ko → 32 Ko) et
+  préchargée dès le HTML. Consigne retirée sur écran tactile.
+- Mesuré en émulation mobile à 1,6 Mbit/s (latence 150 ms) : écran de
+  chargement à 0,7 s, écran titre avec l'île à 28 s. Sur un vrai 4G, non
+  mesuré.
 
 ## 🎓 Leçons apprises
 
