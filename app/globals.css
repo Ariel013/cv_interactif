@@ -273,8 +273,12 @@ dd {
 }
 .hud-consigne {
   bottom: 1.25rem;
-  left: 50%;
-  transform: translateX(-50%);
+  /* Centrée sans transform : l'animation d'entrée l'utilise déjà. */
+  left: 0;
+  right: 0;
+  width: fit-content;
+  max-width: calc(100% - 2 * var(--gouttiere));
+  margin-inline: auto;
   display: flex;
   align-items: center;
   gap: 0.35rem;
@@ -483,17 +487,38 @@ dd {
   .monde {
     height: calc(100svh - 4.1rem);
   }
-  .hud-raccourcis .hud-bouton:not(.hud-bouton-plein) {
+  /* Téléphone : le terminal reste accessible par la barre du haut ; « Aller
+     à… », « Y aller », le son et le PDF tiennent sur une ligne. */
+  .hud-raccourcis {
+    width: 100%;
+    flex-wrap: nowrap;
+  }
+  .hud-raccourcis > a[href*="/terminal"] {
     display: none;
+  }
+  .hud-aller {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+    gap: 0.4rem;
+  }
+  .hud-aller select {
+    flex: 1;
+    min-width: 0;
+    max-width: none;
+  }
+  .hud-raccourcis .hud-bouton {
+    padding-inline: 0.65rem;
+    white-space: nowrap;
   }
   .hud-barre {
     width: 8rem;
   }
   .hud-consigne {
     white-space: normal;
-    width: calc(100% - 2 * var(--gouttiere));
     justify-content: center;
     text-align: center;
+    border-radius: 1rem;
   }
   .hud-consigne kbd {
     display: none;
@@ -542,12 +567,69 @@ dd {
   max-width: 38ch;
   color: var(--encre-2);
 }
+/* Écran titre : « Commencer » et « Mode terminal » sur la même ligne, le PDF
+   en dessous. Les libellés passent à la ligne plutôt que de déborder. */
 .titre-jeu-actions {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
   justify-content: center;
   gap: 0.6rem;
   margin-top: 0.5rem;
+  max-width: 100%;
+}
+.titre-jeu-actions > * {
+  justify-content: center;
+  text-align: center;
+  white-space: normal;
+  min-width: 0;
+}
+.titre-jeu-pdf {
+  grid-column: 1 / -1;
+  justify-self: center;
+}
+/* Mode terminal : l'allure d'une fenêtre de terminal (fond ardoise, texte
+   cyan, chasse fixe), comme la page du terminal. */
+.bouton-terminal {
+  gap: 0.45rem;
+  min-height: 3.2rem;
+  font-family: var(--police-fixe), monospace;
+  color: #67e8f9;
+  background: var(--nuit);
+  border-color: var(--nuit);
+}
+.bouton-terminal span {
+  color: #22d3ee;
+  font-weight: 700;
+}
+.bouton-terminal:hover {
+  color: #ffffff;
+  border-color: #22d3ee;
+}
+@media (max-width: 420px) {
+  .titre-jeu-actions {
+    width: 100%;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  }
+  .titre-jeu-actions > * {
+    padding-inline: 0.7rem;
+    font-size: 0.9rem;
+    line-height: 1.25;
+  }
+  .titre-jeu-jouer,
+  .bouton-terminal {
+    min-height: 3.4rem;
+  }
+  /* La flèche ▶ se coince à côté du texte replié : on la retire. */
+  .titre-jeu-jouer span {
+    display: none;
+  }
+  /* « Aller à… » sur sa propre ligne, son et PDF en dessous. */
+  .hud-raccourcis {
+    flex-wrap: wrap;
+  }
+  .hud-aller {
+    flex-basis: 100%;
+  }
 }
 .titre-jeu-jouer {
   min-height: 3.2rem;
@@ -558,6 +640,10 @@ dd {
 .titre-jeu-note {
   font-size: 0.8125rem;
   color: var(--encre-2);
+}
+.hud-aller {
+  display: flex;
+  gap: 0.5rem;
 }
 .hud-aller select {
   max-width: 15rem;
