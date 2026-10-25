@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
-import { nomAffiche, type ContenuLangue, type Langue } from "@/lib/contenu";
+import { nomAffiche, portfolioClassique, type ContenuLangue, type Langue } from "@/lib/contenu";
 import type { Textes } from "@/lib/textes";
 import { construireZones, type Zone } from "./zones";
 import { sansBalisage } from "@/lib/texte";
@@ -183,7 +183,7 @@ export function Monde({
             </a>
             {/* L'autre expérience : le portfolio classique, pour qui veut
                 aller droit aux projets. Un seul lien suffit alors sur le CV. */}
-            <a href={contenu.identite.liens.portfolio} className="hud-bouton">
+            <a href={portfolioClassique} className="hud-bouton">
               {textes.portfolio} <span aria-hidden="true">→</span>
             </a>
           </div>
