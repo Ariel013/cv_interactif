@@ -19,14 +19,11 @@ Carte des documents : `CLAUDE.md` (règles), `A-FAIRE.md` (actions hors code),
 *(Mis à jour le 2026-10-25.)*
 
 - **Version en prod** : aucune.
-- **État des branches** : `main` = `staging` (amorce) ; `dev` = amorce +
-  ADR 0004 ; local seul, pas de dépôt distant. Branche `docs/produit-et-langues`
-  en cours.
-- **Prochaine action** : après fusion des deux branches d'`optimisation_cv`
-  (correction du CV maître, fiches projets), rédiger la version anglaise du
-  CV maître et des fiches (ADR 0005), puis lot 1
-  (synchronisation FR + EN, page 2D, bascules). Fin du lot 1 : page servie en
-  local, regardée à 375, 768 et 1440 px.
+- **État des branches** : `main` = `staging` (amorce) ; `dev` porte l'île et
+  le terminal (2026-10-25) ; local seul, pas de dépôt distant.
+- **Prochaine action** : mise en ligne sur Vercel (dépôt GitHub public
+  `cv-interactif` + import Vercel), push sur confirmation de Kevin ; puis
+  mesurer le chargement sur un vrai téléphone.
 
 ## 📓 Journal des sessions
 
@@ -73,7 +70,66 @@ Carte des documents : `CLAUDE.md` (règles), `A-FAIRE.md` (actions hors code),
   worktree d'`optimisation_cv`, branche `feat/cv-anglais`), parité vérifiée :
   même structure, mêmes liens, mêmes dates de fin.
 
+### 2026-10-25 (suite) — Lot 1 : la page 2D
+
+- Next.js 16.4.3 (Cache Components), une route par langue `/fr` et `/en`,
+  statiques ; `/` renvoie selon le cookie puis la langue du navigateur
+  (ADR 0005 amendé : chemin plutôt que `?lang=`).
+- Synchronisation depuis l'historique git d'`optimisation_cv` (référence
+  `dev`), parité FR/EN contrôlée, PDF FR et EN générés par le générateur de
+  ce dépôt. Le PDF anglais tient sur deux pages : correction prête dans
+  `optimisation_cv`, non commitée.
+- Page : dossard orange (nom, titre, alternance), modalités et actions, trois
+  preuves qui ouvrent la fiche du projet, profil, mur 2D à sept écrans (fiches
+  toutes lisibles sans JavaScript), ordre de passage, compétences, formation,
+  contact avec photo. Aperçu de partage généré par langue.
+- Vérifié : build, typecheck, lint, 5 tests (dont un cassé exprès),
+  détecteur impeccable à 0 constat FR et EN, captures 320 / 390 / 820 /
+  1440 px, clavier du mur, ancres des preuves, redirections de `/`.
+- Revue sécurité (guidance, diff) et revue de code : corrigés : liste fermée
+  des champs publiés, liens https seulement, référence git validée, fiches
+  rendues côté serveur, faits sortis du code (lenteur, nom, initiales),
+  langue par défaut conforme à l'ADR, licences OFL jointes.
+
+### 2026-10-25 (suite) — Du lot 1 à l'île à explorer
+
+- Kevin rejette la page 2D (« un portfolio ») puis le mur LED orange
+  (couleurs) : il veut un jeu 3D de découverte progressive, dans l'univers de
+  son portfolio. Prototype de l'île fait et jugé « mieux » ; ADR 0006.
+- Ajouts demandés : personnage humain avec sa photo en cercle, terminal à
+  côté (`/fr/terminal`), jalons « formation » / « expérience pro », plus de
+  version classique, accroche raccourcie (tirée d'un champ `accroche` à
+  ajouter au CV maître, branche `feat/accroche-cv-web` d'optimisation_cv, non
+  commitée).
+- Vérifié : build, typecheck, lint, tests ; captures desktop et mobile ;
+  déplacement clavier et toucher ; découvertes ; commandes du terminal.
+- Puis : photo retirée de la tête du personnage (tête stylisée) ; commande
+  `photo` (alias image, picture, `whoami --photo`) : portrait en ASCII calculé
+  dans le navigateur, bouton vers la vraie photo. Écarté le même jour : Kevin
+  ne s'y reconnaît pas. `photo` affiche désormais la vraie photo en cercle.
+
+### 2026-10-25 (suite) — Revue, mise en avant de l'alternance, commits
+
+- Modalités d'alternance mises en avant (pastilles) sur l'écran titre, la
+  carte de départ, le terminal et le secours ; rythme écrit en chiffres
+  (« 3 semaines… 1 semaine ») dans le CV maître (optimisation_cv, fusionné
+  dans `dev`). « CV interactif » retiré au-dessus du nom.
+- Revue sécurité (guidance, diff) + relecture : aucun bloquant. Corrigé :
+  secours si la scène plante ou perd son contexte WebGL, CSP de production
+  (sans nonce), « Aller à… » utilisable au clavier (bouton « Y aller »), Tab
+  et focus du terminal, touches vidées au changement de fenêtre, liens
+  Markdown nettoyés dans l'île, parité île / terminal (cadre, technos,
+  certifications, langues, lenteur), textes morts retirés, garde contre la
+  publication d'une copie de travail, OG en 404 sur langue inconnue.
+- Vérifié en production locale : CSP active, aucune erreur console sur l'île
+  et le terminal, PDF FR et EN d'une page.
+
 ## 🎓 Leçons apprises
+
+- **Un build Turbopack peut servir une feuille de style périmée** après une
+  réécriture complète de `globals.css` : le CSS servi ne contenait pas les
+  nouvelles règles. Vérifier le CSS servi (pas seulement « Compiled ») et,
+  au doute, `rm -rf .next` avant de reconstruire. (2026-10-25)
 
 - **Ne jamais fusionner dans la copie de travail d'une autre session.** La
   branche courante peut changer entre la vérification et la commande. Fusionner

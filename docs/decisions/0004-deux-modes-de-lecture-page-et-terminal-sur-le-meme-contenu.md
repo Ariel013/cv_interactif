@@ -1,6 +1,6 @@
 # 0004 — Deux modes de lecture, page et terminal, sur le même contenu
 
-**Statut** : adopté
+**Statut** : adopté, amendé le 2026-10-25 (voir en fin)
 
 ## Contexte
 
@@ -38,3 +38,14 @@ chat IA envisagé (0003) est abandonné : il demandait une clé payante.
 - Le mode terminal reste utilisable au clavier et au lecteur d'écran, et sur
   téléphone grâce aux suggestions.
 - Le mode choisi par le visiteur se retient localement, l'adresse prime.
+
+## Amendement du 2026-10-25
+
+- Le mode « page » est devenu l'île à explorer (ADR 0006).
+- Le terminal a sa propre adresse, `/fr/terminal` et `/en/terminal`, reliée
+  par la barre du haut ; plus de `?mode=terminal` ni de mode retenu
+  localement : l'adresse suffit.
+- Une commande inconnue répond « Commande inconnue : … Tapez « aide » ».
+- Ajouts : `photo` (portrait en cercle), `sudo` (clin d'œil). La parité des
+  faits entre l'île et le terminal est vérifiée à la main ; le test
+  automatique promis reste à écrire.

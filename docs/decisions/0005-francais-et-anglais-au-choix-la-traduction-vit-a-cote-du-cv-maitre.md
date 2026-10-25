@@ -20,8 +20,12 @@ créerait une seconde source de faits, ce que l'ADR 0001 interdit.
   dans le code.
 - Le visiteur choisit par un bouton FR / EN visible. À la première visite, la
   langue du navigateur décide (anglais par défaut hors francophonie).
-  L'adresse fixe la langue (`?lang=en`) pour que Kevin envoie le bon lien ;
-  elle prime sur le reste. Le choix se retient localement.
+  L'adresse fixe la langue (`/fr`, `/en`) pour que Kevin envoie le bon lien ;
+  elle prime sur le reste. Le choix se retient dans un cookie, lu seulement
+  sur `/`, qui renvoie vers `/fr` ou `/en`.
+  *(Amendé le 2026-10-25 au lot 1 : un chemin par langue plutôt que
+  `?lang=en`, pour que chaque langue soit une page statique avec son propre
+  aperçu de partage.)*
 - Les commandes du terminal ont une forme française et une forme anglaise
   (`projets` et `projects`), acceptées dans les deux langues.
 
