@@ -1,6 +1,6 @@
 # 0002 — Page 2D d'abord, une seule scène 3D chargée à la demande, avec repli
 
-**Statut** : adopté
+**Statut** : remplacé par 0006 (2026-10-25)
 
 ## Contexte
 

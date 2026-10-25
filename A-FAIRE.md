@@ -10,20 +10,16 @@ Dernière mise à jour : 2026-10-25.
 
 ## 1. Variables d'environnement / secrets
 
-| Variable | Où l'obtenir | Statut |
-|---|---|---|
-| Clé d'API du modèle du chat | Console du fournisseur choisi (ADR 0003) | requise — fournisseur à choisir |
+Aucune : pas de chat IA (ADR 0003 abandonné), pas de service à clé.
 
-- ⚠️ Ne jamais committer le fichier d'environnement. La clé vit dans les
-  variables d'environnement Vercel, jamais côté navigateur.
+- ⚠️ Ne jamais committer de fichier d'environnement si un jour il en faut un.
 
 ## 2. Comptes / services externes
 
 | Service | Usage | Statut |
 |---|---|---|
 | GitHub `Ariel013/cv-interactif` (public) | Dépôt | à créer — sur confirmation de Kevin |
-| Vercel | Hébergement + route du chat | projet à créer |
-| Fournisseur du modèle | Chat « Demande à mon CV » | plafond mensuel à fixer côté console |
+| Vercel | Hébergement, sous-domaine `*.vercel.app` (décidé le 2026-10-25) | projet à créer, relié au dépôt GitHub ; aucune variable requise |
 
 ## 3. Migrations à appliquer
 
@@ -33,10 +29,8 @@ Aucune : pas de base de données.
 
 | Question | Qui tranche | Échéance | Impact si non tranché |
 |---|---|---|---|
-| Trois mots de personnalité, site qui inspire, anti-références, charte | Kevin | avant `PRODUCT.md` | pas de brief, pas de code |
-| Fournisseur du chat (clé Anthropic ou OpenAI) et plafond mensuel | Kevin | avant le chat | chat non livrable |
-| Le CV maître d'`optimisation_cv` dit-il bien que la FIBDA est une fédération ? Son journal notait « non fédérale » | Kevin, dans `optimisation_cv` | avant publication | fait contradictoire entre les deux sites |
 | Archiver le dépôt GitHub `Curriculum` | Kevin | à la mise en ligne | deux CV web en ligne, dont un faux |
+| Mesurer le chargement de l'île sur un vrai téléphone moyen | Kevin + agent | avant d'envoyer le lien | recruteurs mobiles qui attendent |
 
 ## 5. Ops et sauvegardes
 

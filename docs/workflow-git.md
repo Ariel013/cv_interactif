@@ -33,7 +33,7 @@ main       ← PRODUCTION (Vercel). Reçoit uniquement staging.
 3. Coder.
 4. Vérifier : typecheck, tests, build, **et regarder la page** à 375, 768 et
    1440 px, WebGL coupé compris.
-5. Revue `code-reviewer`, et `security-reviewer` si le diff touche au chat,
+5. Revue `code-reviewer`, et `security-reviewer` si le diff touche au mode terminal,
    aux secrets ou aux données publiées.
 6. Rapport de tâche ; Kevin valide le commit.
 7. `git add <chemins nommés>` — jamais `git add .` ni `-A`.
