@@ -50,6 +50,11 @@ export function Joystick({ manette, libelle }: { manette: React.RefObject<Manett
       onPointerCancel={relacher}
       onLostPointerCapture={relacher}
     >
+      {/* Flèches dans l'anneau blanc : indiquent les quatre directions. */}
+      <span className="joystick-fleche joystick-haut" aria-hidden="true" />
+      <span className="joystick-fleche joystick-bas" aria-hidden="true" />
+      <span className="joystick-fleche joystick-gauche" aria-hidden="true" />
+      <span className="joystick-fleche joystick-droite" aria-hidden="true" />
       <span className="joystick-bouton" style={{ transform: `translate(${bouton.x}px, ${bouton.y}px)` }} />
     </div>
   );

@@ -9,6 +9,7 @@ import { sansBalisage } from "@/lib/texte";
 import { ErreurScene } from "./ErreurScene";
 import type { Commandes, Manette } from "./SceneMonde";
 import { Joystick } from "./Joystick";
+import { activerSon, couperSon, sonClic, sonCoupe, sonDecouverte, sonFin, sonOuverture } from "./sons";
 
 // Le CV : une île à explorer (ADR 0006). Le personnage découvre les lieux en
 // s'en approchant ; chaque découverte ouvre une carte. Sans WebGL, en
@@ -59,6 +60,7 @@ export function Monde({
   const [mode, setMode] = useState<"attente" | "3d" | "fixe">("attente");
   const [prete, setPrete] = useState(false);
   const [decouverts, setDecouverts] = useState<Set<string>>(new Set());
+  const decouvertsRef = useRef<Set<string>>(new Set());
   const [proche, setProche] = useState<string | null>(null);
   const [ferme, setFerme] = useState<string | null>(null);
   const [aBouge, setABouge] = useState(false);
@@ -68,6 +70,7 @@ export function Monde({
   const choixRef = useRef<HTMLSelectElement>(null);
   const ileRef = useRef<HTMLElement>(null);
   const manette = useRef<Manette>({ x: 0, z: 0 });
+  const [muet, setMuet] = useState(false);
   const aDecouvrir = zones.filter((z) => z.type !== "depart");
   const nbDecouverts = aDecouvrir.filter((z) => decouverts.has(z.id)).length;
   const zone = zones.find((z) => z.id === proche && z.id !== ferme) ?? null;
@@ -76,7 +79,10 @@ export function Monde({
     // Détection et lecture locale possibles seulement dans le navigateur.
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setMode(peutAfficher3D() ? "3d" : "fixe");
-    setDecouverts(lireDecouverts());
+    const lus = lireDecouverts();
+    decouvertsRef.current = lus;
+    setDecouverts(lus);
+    setMuet(sonCoupe());
   }, []);
 
   useEffect(() => {
@@ -90,18 +96,26 @@ export function Monde({
 
   const marquerPrete = useCallback(() => setPrete(true), []);
 
+  // surProche est appelé depuis la boucle de rendu 3D : il lit les découvertes
+  // à jour dans une référence, et joue le son hors de la mise à jour d'état.
   function surProche(id: string | null) {
     setProche(id);
     setFerme(null);
     if (!id) return;
-    setDecouverts((avant) => {
-      if (avant.has(id)) return avant;
-      const apres = new Set(avant).add(id);
-      try {
-        localStorage.setItem(CLE_STOCKAGE, JSON.stringify([...apres]));
-      } catch {}
-      return apres;
-    });
+    const avant = decouvertsRef.current;
+    if (avant.has(id)) {
+      sonOuverture();
+      return;
+    }
+    const apres = new Set(avant).add(id);
+    decouvertsRef.current = apres;
+    const total = zones.filter((z) => z.type !== "depart").length;
+    if (id !== "depart" && [...apres].filter((x) => x !== "depart").length === total) sonFin();
+    else sonDecouverte();
+    try {
+      localStorage.setItem(CLE_STOCKAGE, JSON.stringify([...apres]));
+    } catch {}
+    setDecouverts(apres);
   }
 
   function allerA(id: string) {
@@ -149,6 +163,9 @@ export function Monde({
           <div className="titre-jeu-actions">
             <button type="button" className="hud-bouton hud-bouton-plein titre-jeu-jouer" onClick={() => {
                 setDemarre(true);
+                // Le son ne peut démarrer qu'après un geste du visiteur.
+                activerSon();
+                sonClic();
                 // Le focus va à l'île (pas au menu « Aller à… ») : les flèches
                 // doivent déplacer le personnage, pas changer d'option.
                 requestAnimationFrame(() => ileRef.current?.focus());
@@ -204,6 +221,18 @@ export function Monde({
               {textes.yAller}
             </button>
           </form>
+          <button
+            type="button"
+            className="hud-bouton hud-son"
+            aria-pressed={muet}
+            aria-label={muet ? textes.sonActiver : textes.sonCouper}
+            onClick={() => {
+              couperSon(!muet);
+              setMuet(!muet);
+            }}
+          >
+            <span aria-hidden="true">{muet ? "🔇" : "🔊"}</span>
+          </button>
           <a href={`/${langue}/terminal`} className="hud-bouton">
             {textes.terminal}
           </a>
