@@ -328,7 +328,11 @@ export function Terminal({
               autoCapitalize="off"
               spellCheck={false}
               maxLength={80}
+              enterKeyHint="send"
             />
+            <button type="submit" className="terminal-envoyer" aria-label={t.envoyer} title={t.envoyer}>
+              <span aria-hidden="true">↵</span>
+            </button>
           </form>
       </div>
       <nav className="terminal-suggestions" aria-label={t.suggestions}>
