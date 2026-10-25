@@ -11,13 +11,13 @@ référence — lis aussi celles qui concernent ta tâche avant de coder.
 
 Le CV de Kevin (Ariel Kevin SODJINOU), envoyé par lien dans ses candidatures
 d'alternance fullstack et IA : une île en 3D qu'on explore avec un personnage
-à son image, et un mode terminal à côté (ADR 0006, 0004). Stade : prototype
-validé dans sa direction, pas encore en ligne.
+à son image, et un mode terminal à côté (ADR 0006, 0004). Stade : en ligne
+sur https://iamariel.vercel.app depuis le 2026-10-25.
 
 ## Où en est le projet — LIS CECI AVANT TOUTE CHOSE
 
-- **Phase actuelle : avant la mise en ligne.** Île et terminal commités sur
-  `dev` le 2026-10-25 ; pas encore de dépôt distant ni de déploiement.
+- **Phase actuelle : en ligne.** Dépôt public `Ariel013/cv_interactif`,
+  Vercel déploie `main` (build sans cache `.next`, voir `vercel.json`).
 - Pas de version classique en page : décision de Kevin (ADR 0006). Le secours
   sans 3D est une introduction courte.
 - Univers visuel : celui du portfolio de Kevin (indigo, cyan, Inter).
