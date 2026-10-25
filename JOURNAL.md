@@ -22,7 +22,9 @@ Carte des documents : `CLAUDE.md` (règles), `A-FAIRE.md` (actions hors code),
 - **État des branches** : `main` = `staging` (amorce) ; `dev` = amorce +
   ADR 0004 ; local seul, pas de dépôt distant. Branche `docs/produit-et-langues`
   en cours.
-- **Prochaine action** : faire valider le brief V1 par Kevin, puis lot 1
+- **Prochaine action** : après fusion des deux branches d'`optimisation_cv`
+  (correction du CV maître, fiches projets), rédiger la version anglaise du
+  CV maître et des fiches (ADR 0005), puis lot 1
   (synchronisation FR + EN, page 2D, bascules). Fin du lot 1 : page servie en
   local, regardée à 375, 768 et 1440 px.
 
@@ -46,6 +48,21 @@ Carte des documents : `CLAUDE.md` (règles), `A-FAIRE.md` (actions hors code),
   (ADR 0004). Direction de style « Jour de compétition » validée, sans les
   trois mots de personnalité (retirés à sa demande). Français et anglais au
   choix du visiteur (ADR 0005). `PRODUCT.md` écrit, brief V1 proposé.
+
+### 2026-10-25 (suite) — Fiches projets et correction du CV maître
+
+- Premier jet des fiches vérifié dans les dépôts de chaque projet. Deux
+  erreurs trouvées dans le CV maître, donc dans le PDF envoyé : RAG-RH
+  annonçait ChromaDB et OpenAI (remplacés), NearYou une revendication par OTP
+  SMS (c'est WhatsApp, en pause). Corrigées dans `optimisation_cv`, PDF
+  régénéré sur une page, texte vérifié par extraction.
+- Kevin confirme : mur LED utilisé le 19 septembre, projets faits seul, RAG-RH
+  projet personnel pensé pour AEIG, API de streaming en mai 2024, dashboard en
+  janvier 2024. Pas de chiffres de vente. BlueLock retiré du mur (lien mort).
+- Fiches versées à côté du CV maître (`cv/fiches-projets.json`, ADR 0017 de
+  `optimisation_cv`), zone « Île-de-France » dans `cv/lettre.json`. Faites
+  dans des worktrees : la copie principale d'`optimisation_cv` porte un
+  travail en cours d'une autre session.
 
 ## 🎓 Leçons apprises
 

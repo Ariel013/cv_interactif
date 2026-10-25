@@ -29,10 +29,8 @@ Aucune : pas de base de données.
 
 | Question | Qui tranche | Échéance | Impact si non tranché |
 |---|---|---|---|
-| Compléter le CV maître : fiche courte par projet, faits du Strongman, lignes « alternance » (brief §8) | Kevin, dans `optimisation_cv` | avant le lot 2 | mur LED sans contenu |
 | Valider la version anglaise du CV maître (ADR 0005) | Kevin, dans `optimisation_cv` | avant le lot 1 | pas d'anglais |
 | Fournir la photo à utiliser (celle du Portfolio ?) | Kevin | lot 1 | section contact sans photo |
-| Le CV maître d'`optimisation_cv` dit-il bien que la FIBDA est une fédération ? Son journal notait « non fédérale » | Kevin, dans `optimisation_cv` | avant publication | fait contradictoire entre les deux sites |
 | Archiver le dépôt GitHub `Curriculum` | Kevin | à la mise en ligne | deux CV web en ligne, dont un faux |
 
 ## 5. Ops et sauvegardes
