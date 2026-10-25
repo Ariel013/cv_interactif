@@ -1,0 +1,662 @@
+{
+  "source": {
+    "depot": "optimisation_cv",
+    "ref": "dev",
+    "commit": "b9c9050",
+    "empreinte": "18c444ea5eef5dff"
+  },
+  "fr": {
+    "identite": {
+      "nom": "ARIEL KEVIN SODJINOU",
+      "titre": "Développeur Fullstack & IA",
+      "technos": [
+        "TypeScript",
+        "Python",
+        "Node.js",
+        "FastAPI",
+        "RAG / LLM"
+      ],
+      "localisation": "Paris, France",
+      "telephone": "07 59 55 49 25",
+      "email": "kevin.sodjinou@epitech.eu",
+      "liens": {
+        "linkedin": "https://www.linkedin.com/in/ariel-kevin-sodjinou/",
+        "github": "https://github.com/Ariel013",
+        "portfolio": "https://whoisariel.vercel.app/"
+      }
+    },
+    "telephoneLien": "+33759554925",
+    "resume": "Étudiant en Master à INSTA, je recherche une alternance en développement fullstack et IA. Pendant plus de 2 ans à EPITECH, j'ai développé des solutions et formé plus de 200 personnes. Développeur fullstack avec une appétence pour le backend, j'ai travaillé sur le développement web et les API, les pipelines de données et le déploiement de modèles de machine learning. J'aime transformer des problèmes complexes en solutions concrètes, robustes et maintenables.",
+    "accroche": "Étudiant en Master à INSTA, je cherche une alternance en développement fullstack et IA. En plus de 2 ans à EPITECH, j'ai développé des solutions et formé plus de 200 personnes. Orienté backend : API, pipelines de données, déploiement de modèles de machine learning. J'aime transformer des problèmes complexes en solutions concrètes.",
+    "alternance": {
+      "region": "Île-de-France",
+      "rythme": "3 semaines en entreprise et 1 semaine en formation",
+      "disponibilite": "disponibilité immédiate"
+    },
+    "projets": [
+      {
+        "id": "strongman",
+        "titre": "Strongman 2026",
+        "cadre": "Mission pour la FIBDA (Fédération Ivoirienne de Bodybuilding, Dynamophilie et Assimilés)",
+        "periode": "Sept. 2026",
+        "ecran": "Logiciel d'arbitrage du championnat national de strongman de la FIBDA, utilisé en direct le 19 septembre 2026.",
+        "probleme": "L'arbitrage tenait sur une page autonome qui gardait tout dans le navigateur d'un seul poste. Il fallait une application partagée entre la table de marque, la régie et les écrans publics, pour une compétition jouée en direct, un seul jour.",
+        "realisations": [
+          "Conçu et livré une application Next.js et PostgreSQL qui remplace la page autonome, en gardant son interface et ses règles de classement.",
+          "Ajouté une administration protégée, un journal d'audit de toute écriture qui touche un résultat, neuf écrans publics pilotés depuis la régie pour le mur LED, des impressions officielles et un classement des clubs.",
+          "Livré pendant la compétition deux fonctions demandées sur place : corriger un résultat validé, imprimer le classement général complet.",
+          "Corrigé le lendemain les résultats d'une épreuve annulée par un script versionné : 22 passages corrigés, 22 lignes au journal d'audit."
+        ],
+        "resultat": "Utilisé en direct pendant le championnat du 19 septembre 2026, sur le mur LED de la salle ; 217 vérifications automatisées sur 217 au dernier passage.",
+        "stack": [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Drizzle",
+          "PostgreSQL",
+          "Supabase",
+          "Vercel"
+        ],
+        "liens": {
+          "demo": "https://strongman-pied.vercel.app/",
+          "code": null
+        },
+        "lenteur": null
+      },
+      {
+        "id": "fibda-bodybuilding",
+        "titre": "FIBDA Bodybuilding",
+        "cadre": "Mission pour la FIBDA",
+        "periode": "Sept. 2026",
+        "ecran": "Jugement de bodybuilding sur le téléphone des juges, utilisé en compétition FIBDA le 26 septembre 2026.",
+        "probleme": "L'application de jugement tournait sur un ordinateur en réseau local dans la salle. Aucun hébergement gratuit ne convenait, la compétition avait lieu trois jours plus tard, et je ne serais pas sur place.",
+        "realisations": [
+          "Réécrit le serveur en TypeScript sans serveur (Hono, Turso, fonctions Vercel) avec le même contrat d'API, en gardant l'interface React.",
+          "Comparé l'ancien et le nouveau moteur de classement sur 200 jeux de données : 200 résultats identiques.",
+          "Ajouté en trois jours une application installable sur téléphone, des exports CSV, XLSX et PDF, les photos, un mode d'emploi par profil, un classement des clubs et des catégories hors référentiel IFBB.",
+          "Livré 15 à 16 mises à jour à distance le jour de la compétition, dont plusieurs pendant les épreuves du soir."
+        ],
+        "resultat": "Utilisé pendant la compétition du 26 septembre 2026.",
+        "stack": [
+          "React",
+          "TypeScript",
+          "Vite",
+          "Hono",
+          "Turso",
+          "Vercel"
+        ],
+        "liens": {
+          "demo": "https://fibda-bodybuilding.vercel.app/",
+          "code": null
+        },
+        "lenteur": null
+      },
+      {
+        "id": "ukwc",
+        "titre": "United Kizdom World Congress",
+        "cadre": "Mission pour un festival à Cotonou",
+        "periode": "Avr. – juil. 2026, reprise en oct. 2026",
+        "ecran": "Site et billetterie d'un festival international de danse latine à Cotonou, paiement Mobile Money par FedaPay.",
+        "probleme": "Le festival devait vendre ses billets en ligne et sur place, encaisser par Mobile Money et contrôler les entrées.",
+        "realisations": [
+          "Développé seul le site public et la billetterie (Nuxt) et l'API (Laravel, MySQL) : achat, paiement FedaPay avec confirmation automatique, billets par e-mail, administration, scanner de billets, points de vente physiques.",
+          "Repris le site après l'édition 2026 : audit, page d'attente pour l'édition 2027, version bilingue français et anglais."
+        ],
+        "resultat": "Site en attente de l'édition 2027.",
+        "stack": [
+          "Nuxt",
+          "Tailwind CSS",
+          "Laravel",
+          "MySQL",
+          "FedaPay"
+        ],
+        "liens": {
+          "demo": "https://unitedkizdom.com/",
+          "code": null
+        },
+        "lenteur": null
+      },
+      {
+        "id": "rag-rh",
+        "titre": "RAG-RH",
+        "cadre": "Projet personnel, pensé pour AEIG",
+        "periode": "Mars – oct. 2026",
+        "ecran": "Assistant RH qui répond à partir d'une base Notion, avec recherche hybride pgvector et plein texte.",
+        "probleme": "Les salariés posent sans cesse les mêmes questions RH (congés, paie, procédures) alors que les réponses existent déjà, dispersées dans les pages internes.",
+        "realisations": [
+          "Construit un pipeline RAG de bout en bout : synchronisation incrémentale de Notion, lecture du texte des images, découpage, embeddings calculés en local, réponses en streaming par FastAPI.",
+          "Remplacé ChromaDB par PostgreSQL et pgvector, puis ajouté une recherche hybride (sens et plein texte, fusion RRF).",
+          "Écrit un jeu de 62 questions de test pour mesurer chaque réglage plutôt que juger à l'impression.",
+          "Posé les garde-fous : réponses limitées aux documents, filtre vie privée à l'import, sécurité au niveau des lignes, limite de requêtes, modèles de secours."
+        ],
+        "resultat": "Sur le banc de test, le bon passage est retrouvé pour 59 questions sur 62, contre 53 avant la recherche hybride. Démo publique sur 170 pages fictives.",
+        "stack": [
+          "Python",
+          "FastAPI",
+          "PostgreSQL",
+          "pgvector",
+          "Supabase",
+          "fastembed",
+          "Groq",
+          "API Notion",
+          "Docker"
+        ],
+        "liens": {
+          "demo": "https://arieldev13-assistant-rh-rag.hf.space/",
+          "code": "https://github.com/Ariel013/Rag-RH"
+        },
+        "lenteur": null
+      },
+      {
+        "id": "nearyou",
+        "titre": "NearYou",
+        "cadre": "Projet personnel",
+        "periode": "Depuis mai 2026",
+        "ecran": "Annuaire sur carte des artisans de quartier au Bénin et en Côte d'Ivoire, alimenté par la communauté.",
+        "probleme": "Trouver vite un plombier ou un électricien fiable près de chez soi, quand ces artisans sont rarement en ligne.",
+        "realisations": [
+          "Conçu une PWA où chacun peut ajouter un artisan, avec recherche par distance sur carte (PostGIS, MapLibre).",
+          "Mis en place la revendication d'une fiche par l'artisan via un bot WhatsApp, aujourd'hui en pause.",
+          "Trouvé et corrigé une faille : une fiche non revendiquée pouvait être modifiée sans preuve et exposait un numéro ; remplacé par une session signée.",
+          "Refait l'interface : contrastes calculés, cibles tactiles de 44 px, mises en page vérifiées sur téléphone, tablette et ordinateur."
+        ],
+        "resultat": "En ligne, sans usagers réels pour l'instant.",
+        "stack": [
+          "Next.js",
+          "TypeScript",
+          "PostgreSQL",
+          "PostGIS",
+          "Supabase",
+          "MapLibre",
+          "Vercel"
+        ],
+        "liens": {
+          "demo": "https://near-you-lovat.vercel.app/",
+          "code": "https://github.com/Ariel013/NearYou"
+        },
+        "lenteur": null
+      },
+      {
+        "id": "api-streaming",
+        "titre": "API de streaming simulé",
+        "cadre": "EPITECH",
+        "periode": "Mai 2024",
+        "ecran": "API FastAPI qui diffuse des commentaires de séries en flux simulé, pour entraîner des modèles d'analyse de sentiments.",
+        "probleme": "Le projet étudiant d'analyse de sentiments en flux dépendait d'une API devenue payante.",
+        "realisations": [
+          "Développé seul une API qui sert, pour 30 séries, 5 000 commentaires pré-générés par titre, à rythme fixe, avec un curseur temporel déterministe.",
+          "Fourni le sentiment de chaque commentaire pour évaluer les modèles, et compressé les réponses."
+        ],
+        "resultat": "En service.",
+        "stack": [
+          "Python",
+          "FastAPI",
+          "Render"
+        ],
+        "liens": {
+          "demo": "https://movie-stream-api-bidi.onrender.com/",
+          "code": null
+        },
+        "lenteur": "Hébergement gratuit : la première réponse peut prendre une minute."
+      },
+      {
+        "id": "dashboard-epitech",
+        "titre": "Dashboard de suivi académique",
+        "cadre": "EPITECH, outil interne",
+        "periode": "Janv. 2024",
+        "ecran": "Outil interne de suivi académique d'EPITECH : j'ai développé l'authentification et les droits d'accès.",
+        "probleme": "L'école voulait suivre la progression académique de ses étudiants dans un outil interne.",
+        "realisations": [
+          "Développé le module d'authentification et d'autorisation des utilisateurs.",
+          "Co-conçu le modèle de données avec l'équipe."
+        ],
+        "resultat": null,
+        "stack": [
+          "Node.js",
+          "Express.js"
+        ],
+        "liens": {
+          "demo": null,
+          "code": null
+        },
+        "lenteur": null
+      }
+    ],
+    "parcours": [
+      {
+        "periode": "Janv. 2024 – Juil. 2026",
+        "structure": "EPITECH",
+        "poste": "Accompagnateur Pédagogique, Développeur & Formateur Fullstack / Data-IA",
+        "points": [
+          {
+            "texte": "Développé des solutions internes :",
+            "sous": [
+              "**BlueLock** (React) : Travaillé sur l'affichage des challenges de la plateforme CTF de l'école.",
+              "**[API de streaming simulé](https://movie-stream-api-bidi.onrender.com/)** (Python, FastAPI) : Développé pour entraîner des modèles d'analyse de sentiments.",
+              "**Dashboard de suivi académique** (Node.js, Express.js) : Développé le module d'authentification et d'autorisation des utilisateurs ; co-conçu le modèle de données."
+            ]
+          },
+          {
+            "texte": "Formé des promotions d'étudiants (programmes WECODE et Talent4Startup) au Full Stack, à la Data et à l'IA.",
+            "sous": []
+          },
+          {
+            "texte": "Réalisé des revues de code et évalué les projets étudiants (ETL, Scikit-learn / Keras, API, fullstack) ; organisé hackathons et game jams.",
+            "sous": []
+          }
+        ]
+      },
+      {
+        "periode": "Mai 2026",
+        "structure": "African Education and Innovation Group (AEIG) / Programme We.Code",
+        "poste": "Formateur Automatisation No-Code",
+        "points": [
+          {
+            "texte": "Conçu et animé un bootcamp d'automatisation no-code (Zapier, Baserow) pour des Product Managers juniors.",
+            "sous": []
+          },
+          {
+            "texte": "Créé des cas pratiques pour comprendre l'automatisation avec Zapier : flux de données, synchronisation d'applications.",
+            "sous": []
+          }
+        ]
+      },
+      {
+        "periode": "Déc. 2022 – Mai 2023",
+        "structure": "Agence des Systèmes d'Information et du Numérique (ASIN)",
+        "poste": "Analyste Cybersécurité",
+        "points": [
+          {
+            "texte": "Mené des tests d'intrusion web (OWASP) ; rédigé les rapports SOC : failles classées par criticité CVSS, actions correctives.",
+            "sous": []
+          },
+          {
+            "texte": "Assuré la veille de vulnérabilités et la threat intelligence sur l'écosystème web national ; monitoring FortiSIEM.",
+            "sous": []
+          }
+        ]
+      }
+    ],
+    "competences": [
+      {
+        "famille": "Langages",
+        "liste": "TypeScript, JavaScript, Python, PHP, SQL"
+      },
+      {
+        "famille": "Backend",
+        "liste": "Node.js (Express, NestJS, Hono), FastAPI, Flask, Laravel, APIs REST"
+      },
+      {
+        "famille": "Frontend",
+        "liste": "React, Next.js, Vue.js / Nuxt, Tailwind CSS"
+      },
+      {
+        "famille": "IA & Data",
+        "liste": "Pipelines RAG, agents IA, Pandas, NumPy, Scikit-learn, TensorFlow / Keras, NLP, Kafka"
+      },
+      {
+        "famille": "Bases de données",
+        "liste": "PostgreSQL, MySQL, MongoDB, SQLite, Turso, ChromaDB, pgvector, Prisma, Drizzle"
+      },
+      {
+        "famille": "DevOps & Qualité",
+        "liste": "Git / GitHub, Docker, Linux, Vercel, Render, Railway, Jest, Postman, Selenium"
+      },
+      {
+        "famille": "Sécurité & No-code",
+        "liste": "Tests d'intrusion web, OWASP, rapports SOC · n8n, Zapier, Baserow"
+      }
+    ],
+    "formations": [
+      {
+        "intitule": "**Master Conception et Développement de Solutions Informatiques**, INSTA, Paris",
+        "periode": "Depuis sept. 2026"
+      },
+      {
+        "intitule": "**Certificat Concepteur et Développeur Web & Mobile** (RNCP niveau 5), EPITECH",
+        "periode": "2023 – 2024"
+      },
+      {
+        "intitule": "**Licence Informatique, Réseaux et Télécoms**, option Systèmes, Réseaux et Sécurité, ESGIS",
+        "periode": "2019 – 2022"
+      }
+    ],
+    "certifications": [
+      "CodinGame Python 3 et Coding Speed Gold",
+      "Postman Student Expert",
+      "Network Security Expert 1 & 2, *Fortinet*",
+      "PMP (Project Management Professional), *GoMyCode*"
+    ],
+    "langues": [
+      "Français (courant)",
+      "Anglais (B2, Duolingo English Test)"
+    ]
+  },
+  "en": {
+    "identite": {
+      "nom": "ARIEL KEVIN SODJINOU",
+      "titre": "Fullstack & AI Developer",
+      "technos": [
+        "TypeScript",
+        "Python",
+        "Node.js",
+        "FastAPI",
+        "RAG / LLM"
+      ],
+      "localisation": "Paris, France",
+      "telephone": "+33 7 59 55 49 25",
+      "email": "kevin.sodjinou@epitech.eu",
+      "liens": {
+        "linkedin": "https://www.linkedin.com/in/ariel-kevin-sodjinou/",
+        "github": "https://github.com/Ariel013",
+        "portfolio": "https://whoisariel.vercel.app/"
+      }
+    },
+    "telephoneLien": "+33759554925",
+    "resume": "Master's student at INSTA, I am looking for a work-study position (alternance) in fullstack and AI development. Over more than 2 years at EPITECH, I built software and trained more than 200 people. A fullstack developer with a taste for the backend, I have worked on web development and APIs, data pipelines and the deployment of machine learning models. I like turning complex problems into concrete, robust and maintainable solutions.",
+    "accroche": "Master's student at INSTA, looking for a work-study position in fullstack and AI development. Over more than 2 years at EPITECH, I built software and trained more than 200 people. Backend-minded: APIs, data pipelines, machine learning model deployment. I like turning complex problems into concrete solutions.",
+    "alternance": {
+      "region": "Île-de-France (Paris region)",
+      "rythme": "3 weeks in the company, 1 week at school",
+      "disponibilite": "available immediately"
+    },
+    "projets": [
+      {
+        "id": "strongman",
+        "titre": "Strongman 2026",
+        "cadre": "Assignment for the FIBDA (Ivorian Federation of Bodybuilding, Powerlifting and Related Sports)",
+        "periode": "Sept. 2026",
+        "ecran": "Judging software for the FIBDA national strongman championship, used live on 19 September 2026.",
+        "probleme": "Judging ran on a standalone page that kept everything in the browser of a single computer. The scoring table, the control room and the public screens needed one shared application, for a competition held live on a single day.",
+        "realisations": [
+          "Designed and delivered a Next.js and PostgreSQL application replacing the standalone page, keeping its interface and ranking rules.",
+          "Added a protected admin area, an audit log of every write that affects a result, nine public screens driven from the control room for the LED wall, official printouts and a club ranking.",
+          "Shipped two features requested on site during the competition: correcting a validated result, printing the full overall ranking.",
+          "Fixed the results of a cancelled event the next day with a versioned script: 22 attempts corrected, 22 entries in the audit log."
+        ],
+        "resultat": "Used live during the championship on 19 September 2026, on the venue's LED wall; 217 out of 217 automated checks on the last run.",
+        "stack": [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Drizzle",
+          "PostgreSQL",
+          "Supabase",
+          "Vercel"
+        ],
+        "liens": {
+          "demo": "https://strongman-pied.vercel.app/",
+          "code": null
+        },
+        "lenteur": null
+      },
+      {
+        "id": "fibda-bodybuilding",
+        "titre": "FIBDA Bodybuilding",
+        "cadre": "Assignment for the FIBDA",
+        "periode": "Sept. 2026",
+        "ecran": "Bodybuilding judging on the judges' phones, used at a FIBDA competition on 26 September 2026.",
+        "probleme": "The judging application ran on a computer on a local network in the venue. No free hosting fitted, the competition was three days away, and I would not be on site.",
+        "realisations": [
+          "Rewrote the server in serverless TypeScript (Hono, Turso, Vercel functions) with the same API contract, keeping the React interface.",
+          "Compared the old and new ranking engines on 200 datasets: 200 identical results.",
+          "Added in three days an installable phone app, CSV, XLSX and PDF exports, photos, a per-role user guide, a club ranking and categories outside the IFBB reference list.",
+          "Shipped 15 to 16 remote updates on competition day, several of them during the evening events."
+        ],
+        "resultat": "Used during the competition on 26 September 2026.",
+        "stack": [
+          "React",
+          "TypeScript",
+          "Vite",
+          "Hono",
+          "Turso",
+          "Vercel"
+        ],
+        "liens": {
+          "demo": "https://fibda-bodybuilding.vercel.app/",
+          "code": null
+        },
+        "lenteur": null
+      },
+      {
+        "id": "ukwc",
+        "titre": "United Kizdom World Congress",
+        "cadre": "Assignment for a festival in Cotonou",
+        "periode": "Apr. – Jul. 2026, resumed Oct. 2026",
+        "ecran": "Website and ticketing for an international Latin dance festival in Cotonou, with Mobile Money payment via FedaPay.",
+        "probleme": "The festival needed to sell tickets online and on site, collect Mobile Money payments and check entries.",
+        "realisations": [
+          "Developed on my own the public website and ticketing (Nuxt) and the API (Laravel, MySQL): purchase, FedaPay payment with automatic confirmation, tickets by email, admin, ticket scanner, physical points of sale.",
+          "Took the site back over after the 2026 edition: audit, holding page for the 2027 edition, French and English versions."
+        ],
+        "resultat": "Site waiting for the 2027 edition.",
+        "stack": [
+          "Nuxt",
+          "Tailwind CSS",
+          "Laravel",
+          "MySQL",
+          "FedaPay"
+        ],
+        "liens": {
+          "demo": "https://unitedkizdom.com/",
+          "code": null
+        },
+        "lenteur": null
+      },
+      {
+        "id": "rag-rh",
+        "titre": "RAG-RH",
+        "cadre": "Personal project, designed for AEIG",
+        "periode": "Mar. – Oct. 2026",
+        "ecran": "HR assistant answering from a Notion knowledge base, with hybrid pgvector and full-text search.",
+        "probleme": "Employees keep asking the same HR questions (leave, pay, procedures) while the answers already exist, scattered across internal pages.",
+        "realisations": [
+          "Built an end-to-end RAG pipeline: incremental Notion sync, text extraction from images, chunking, locally computed embeddings, streamed answers through FastAPI.",
+          "Replaced ChromaDB with PostgreSQL and pgvector, then added hybrid search (semantic and full-text, RRF fusion).",
+          "Wrote a set of 62 test questions to measure every setting instead of judging by feel.",
+          "Put guardrails in place: answers limited to the documents, privacy filter at import, row-level security, rate limiting, fallback models."
+        ],
+        "resultat": "On the test bench, the right passage is retrieved for 59 out of 62 questions, up from 53 before hybrid search. Public demo on 170 fictional pages.",
+        "stack": [
+          "Python",
+          "FastAPI",
+          "PostgreSQL",
+          "pgvector",
+          "Supabase",
+          "fastembed",
+          "Groq",
+          "Notion API",
+          "Docker"
+        ],
+        "liens": {
+          "demo": "https://arieldev13-assistant-rh-rag.hf.space/",
+          "code": "https://github.com/Ariel013/Rag-RH"
+        },
+        "lenteur": null
+      },
+      {
+        "id": "nearyou",
+        "titre": "NearYou",
+        "cadre": "Personal project",
+        "periode": "Since May 2026",
+        "ecran": "Map-based directory of neighbourhood tradespeople in Benin and Côte d'Ivoire, fed by the community.",
+        "probleme": "Quickly finding a reliable plumber or electrician nearby, when these tradespeople are rarely online.",
+        "realisations": [
+          "Designed a PWA where anyone can add a tradesperson, with distance search on a map (PostGIS, MapLibre).",
+          "Set up listing claims by tradespeople through a WhatsApp bot, currently paused.",
+          "Found and fixed a vulnerability: an unclaimed listing could be edited without proof and exposed a phone number; replaced with a signed session.",
+          "Rebuilt the interface: computed contrast, 44 px touch targets, layouts checked on phone, tablet and desktop."
+        ],
+        "resultat": "Online, no real users yet.",
+        "stack": [
+          "Next.js",
+          "TypeScript",
+          "PostgreSQL",
+          "PostGIS",
+          "Supabase",
+          "MapLibre",
+          "Vercel"
+        ],
+        "liens": {
+          "demo": "https://near-you-lovat.vercel.app/",
+          "code": "https://github.com/Ariel013/NearYou"
+        },
+        "lenteur": null
+      },
+      {
+        "id": "api-streaming",
+        "titre": "Simulated streaming API",
+        "cadre": "EPITECH",
+        "periode": "May 2024",
+        "ecran": "FastAPI service streaming TV show comments as a simulated feed, to train sentiment analysis models.",
+        "probleme": "The students' streaming sentiment analysis project depended on an API that had become paid.",
+        "realisations": [
+          "Built on my own an API serving, for 30 shows, 5,000 pre-generated comments per title at a fixed pace, with a deterministic time cursor.",
+          "Provided the sentiment of each comment to evaluate the models, and compressed the responses."
+        ],
+        "resultat": "In service.",
+        "stack": [
+          "Python",
+          "FastAPI",
+          "Render"
+        ],
+        "liens": {
+          "demo": "https://movie-stream-api-bidi.onrender.com/",
+          "code": null
+        },
+        "lenteur": "Free hosting: the first response can take a minute."
+      },
+      {
+        "id": "dashboard-epitech",
+        "titre": "Academic tracking dashboard",
+        "cadre": "EPITECH, internal tool",
+        "periode": "Jan. 2024",
+        "ecran": "EPITECH's internal academic tracking tool: I built the authentication and access rights.",
+        "probleme": "The school wanted to track its students' academic progress in an internal tool.",
+        "realisations": [
+          "Developed the user authentication and authorization module.",
+          "Co-designed the data model with the team."
+        ],
+        "resultat": null,
+        "stack": [
+          "Node.js",
+          "Express.js"
+        ],
+        "liens": {
+          "demo": null,
+          "code": null
+        },
+        "lenteur": null
+      }
+    ],
+    "parcours": [
+      {
+        "periode": "Jan. 2024 – Jul. 2026",
+        "structure": "EPITECH",
+        "poste": "Teaching Assistant, Fullstack / Data-AI Developer & Trainer",
+        "points": [
+          {
+            "texte": "Built internal tools:",
+            "sous": [
+              "**BlueLock** (React): Worked on the challenge display of the school's CTF platform.",
+              "**[Simulated streaming API](https://movie-stream-api-bidi.onrender.com/)** (Python, FastAPI): Built to train sentiment analysis models.",
+              "**Academic tracking dashboard** (Node.js, Express.js): Developed the user authentication and authorization module; co-designed the data model."
+            ]
+          },
+          {
+            "texte": "Trained cohorts of students (WECODE and Talent4Startup programs) in Full Stack, Data and AI.",
+            "sous": []
+          },
+          {
+            "texte": "Reviewed code and assessed student projects (ETL, Scikit-learn / Keras, APIs, fullstack); ran hackathons and game jams.",
+            "sous": []
+          }
+        ]
+      },
+      {
+        "periode": "May 2026",
+        "structure": "African Education and Innovation Group (AEIG) / We.Code Program",
+        "poste": "No-Code Automation Trainer",
+        "points": [
+          {
+            "texte": "Designed and ran a no-code automation bootcamp (Zapier, Baserow) for junior Product Managers.",
+            "sous": []
+          },
+          {
+            "texte": "Created hands-on exercises to understand automation with Zapier: data flows, app synchronization.",
+            "sous": []
+          }
+        ]
+      },
+      {
+        "periode": "Dec. 2022 – May 2023",
+        "structure": "Agence des Systèmes d'Information et du Numérique (ASIN)",
+        "poste": "Cybersecurity Analyst",
+        "points": [
+          {
+            "texte": "Ran web penetration tests (OWASP); wrote SOC reports: vulnerabilities ranked by CVSS severity, remediation actions.",
+            "sous": []
+          },
+          {
+            "texte": "Monitored vulnerabilities and threat intelligence across the national web ecosystem; FortiSIEM monitoring.",
+            "sous": []
+          }
+        ]
+      }
+    ],
+    "competences": [
+      {
+        "famille": "Languages",
+        "liste": "TypeScript, JavaScript, Python, PHP, SQL"
+      },
+      {
+        "famille": "Backend",
+        "liste": "Node.js (Express, NestJS, Hono), FastAPI, Flask, Laravel, REST APIs"
+      },
+      {
+        "famille": "Frontend",
+        "liste": "React, Next.js, Vue.js / Nuxt, Tailwind CSS"
+      },
+      {
+        "famille": "AI & Data",
+        "liste": "RAG pipelines, AI agents, Pandas, NumPy, Scikit-learn, TensorFlow / Keras, NLP, Kafka"
+      },
+      {
+        "famille": "Databases",
+        "liste": "PostgreSQL, MySQL, MongoDB, SQLite, Turso, ChromaDB, pgvector, Prisma, Drizzle"
+      },
+      {
+        "famille": "DevOps & Quality",
+        "liste": "Git / GitHub, Docker, Linux, Vercel, Render, Railway, Jest, Postman, Selenium"
+      },
+      {
+        "famille": "Security & No-code",
+        "liste": "Web penetration testing, OWASP, SOC reports · n8n, Zapier, Baserow"
+      }
+    ],
+    "formations": [
+      {
+        "intitule": "**Master's degree in Software Solutions Design and Development** (Conception et Développement de Solutions Informatiques), INSTA, Paris",
+        "periode": "Since Sept. 2026"
+      },
+      {
+        "intitule": "**Web & Mobile Designer and Developer certificate** (French RNCP level 5), EPITECH",
+        "periode": "2023 – 2024"
+      },
+      {
+        "intitule": "**Bachelor's degree in Computer Science, Networks and Telecommunications**, Systems, Networks and Security track, ESGIS",
+        "periode": "2019 – 2022"
+      }
+    ],
+    "certifications": [
+      "CodinGame Python 3 and Coding Speed Gold",
+      "Postman Student Expert",
+      "Network Security Expert 1 & 2, *Fortinet*",
+      "PMP (Project Management Professional), *GoMyCode*"
+    ],
+    "langues": [
+      "French (fluent)",
+      "English (B2, Duolingo English Test)"
+    ]
+  }
+}
