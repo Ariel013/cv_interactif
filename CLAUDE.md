@@ -9,27 +9,24 @@ référence — lis aussi celles qui concernent ta tâche avant de coder.
 
 ## Le projet en une phrase
 
-Le CV web de Kevin (Ariel Kevin SODJINOU), envoyé par lien dans ses
-candidatures d'alternance fullstack et IA. Deux lectures au choix : une page
-qui se lit en 30 secondes avec une scène 3D signature (le mur LED du Strongman,
-un écran par projet), et un mode terminal pour un public tech. Stade : amorce,
-aucun code.
+Le CV de Kevin (Ariel Kevin SODJINOU), envoyé par lien dans ses candidatures
+d'alternance fullstack et IA : une île en 3D qu'on explore avec un personnage
+à son image, et un mode terminal à côté (ADR 0006, 0004). Stade : prototype
+validé dans sa direction, pas encore en ligne.
 
 ## Où en est le projet — LIS CECI AVANT TOUTE CHOSE
 
-- **Phase actuelle : amorce.** Pas de code. `PRODUCT.md` écrit ; brief de
-  design `docs/brief-v1.md` proposé. Aucun écran ne se code avant sa
-  validation par Kevin.
-- Remplace le dépôt `Curriculum` (dérivé d'un modèle open-source), abandonné :
-  on n'en reprend ni le code ni le contenu.
-- Pas de chat IA : abandonné le 2026-10-25 (ADR 0003). Le mode terminal le
-  remplace, sans modèle ni clé d'API (ADR 0004).
+- **Phase actuelle : avant la mise en ligne.** Île et terminal commités sur
+  `dev` le 2026-10-25 ; pas encore de dépôt distant ni de déploiement.
+- Pas de version classique en page : décision de Kevin (ADR 0006). Le secours
+  sans 3D est une introduction courte.
+- Univers visuel : celui du portfolio de Kevin (indigo, cyan, Inter).
 
 ## Stack technique
 
 - Next.js (App Router) + TypeScript, Tailwind, hébergé sur Vercel.
-- 3D : React Three Fiber, une seule scène, chargée à la demande, avec repli
-  statique (ADR 0002).
+- 3D : React Three Fiber + drei, une île chargée à la demande, avec une
+  introduction de secours (ADR 0006).
 - Mode terminal : commandes prédéfinies, réponses tirées du même contenu,
   aucun appel serveur (ADR 0004).
 - Contenu : copie publique du CV maître d'`optimisation_cv` (ADR 0001).
@@ -44,6 +41,7 @@ aucun code.
 | `PRODUCT.md` | Avant tout travail de design |
 | `docs/brief-v1.md` | Avant de coder un écran de la V1 |
 | `docs/workflow-git.md` | Avant tout commit |
+| `docs/commandes.md` | Pour lancer, synchroniser, tester |
 | `docs/decisions/` | Avant de remettre en cause un choix déjà fait |
 
 ## Règles d'or, non négociables
@@ -56,9 +54,9 @@ aucun code.
 3. **Dépôt public : seulement ce que Kevin a choisi de publier.** Téléphone et
    e-mail publiés (décision du 2026-10-25), en liens cliquables. Jamais
    d'adresse postale ni de secret.
-4. **Le contenu passe avant la 3D.** Le CV se lit sans WebGL, sans JavaScript
-   lourd, sur un téléphone modeste et dans l'aperçu d'un client mail. La scène
-   3D est un bonus qui ne bloque jamais l'accès au texte.
+4. **Personne n'est bloqué par la 3D.** Sans WebGL ou en mouvement réduit,
+   l'introduction de secours, le terminal et le PDF donnent l'essentiel ; dans
+   l'île, « Aller à… » et le PDF restent toujours à portée.
 5. **Les missions freelance de 2026 s'affichent comme projets réalisés**, pas
    comme une expérience « Freelance » (décision de Kevin, 2026-10-25).
 6. **Les deux modes et les deux langues disent la même chose.** Page et

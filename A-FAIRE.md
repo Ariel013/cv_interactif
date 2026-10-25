@@ -19,7 +19,7 @@ Aucune : pas de chat IA (ADR 0003 abandonné), pas de service à clé.
 | Service | Usage | Statut |
 |---|---|---|
 | GitHub `Ariel013/cv-interactif` (public) | Dépôt | à créer — sur confirmation de Kevin |
-| Vercel | Hébergement, sous-domaine `*.vercel.app` (décidé le 2026-10-25) | projet à créer |
+| Vercel | Hébergement, sous-domaine `*.vercel.app` (décidé le 2026-10-25) | projet à créer, relié au dépôt GitHub ; aucune variable requise |
 
 ## 3. Migrations à appliquer
 
@@ -29,9 +29,8 @@ Aucune : pas de base de données.
 
 | Question | Qui tranche | Échéance | Impact si non tranché |
 |---|---|---|---|
-| Valider la version anglaise du CV maître (ADR 0005) | Kevin, dans `optimisation_cv` | avant le lot 1 | pas d'anglais |
-| Fournir la photo à utiliser (celle du Portfolio ?) | Kevin | lot 1 | section contact sans photo |
 | Archiver le dépôt GitHub `Curriculum` | Kevin | à la mise en ligne | deux CV web en ligne, dont un faux |
+| Mesurer le chargement de l'île sur un vrai téléphone moyen | Kevin + agent | avant d'envoyer le lien | recruteurs mobiles qui attendent |
 
 ## 5. Ops et sauvegardes
 
