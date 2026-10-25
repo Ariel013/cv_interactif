@@ -18,16 +18,19 @@ Carte des documents : `CLAUDE.md` (règles), `A-FAIRE.md` (actions hors code),
 
 *(Mis à jour le 2026-10-25.)*
 
-- **Version en prod** : https://iamariel.vercel.app, `main` au 2026-10-25,
-  vérifiée en ligne : CSS neuve servie (build sans cache), plus d'écran de
-  chargement, joystick à droite (avec flèches) et cartes réduites en
-  émulation tactile 390 px, sons et animations en ligne, aucune erreur
-  console.
-- **État des branches** : `main` = `staging` (amorce) ; `dev` porte l'île et
-  le terminal ; dépôt distant `Ariel013/cv_interactif` (public), Vercel
-  déploie `main`.
-- **Prochaine action** : pousser (sur confirmation) ; retour de Kevin sur
-  téléphone ; couleur du bouton terminal ; son actif ou coupé ; `/capitaliser`.
+- **Version en prod** : https://iamariel.vercel.app, `main` = `staging` =
+  `dev` au 2026-10-25 (commit `cf0a650`). Vérifié en ligne : bouton d'envoi
+  du terminal et adresses longues sans débordement (320 px), flèche vers le
+  contact, carte de fin refermable. Kevin a vérifié sur son téléphone le
+  terminal et la flèche.
+- **Décisions de Kevin (2026-10-25)** : bouton « Mode terminal » au style
+  terminal (ardoise, cyan) gardé ; son actif par défaut ; flèche vers le
+  contact visible dès le début de l'exploration.
+- **Non vérifié** : pas de zoom iOS sur le champ du terminal (pas d'iPhone
+  testé) ; volume et rendu des sons sur appareil réel.
+- **Prochaine action** : aucune en cours. Pistes si Kevin relance : envoyer
+  le lien dans les candidatures, désactiver GitHub Pages sur l'ancien dépôt
+  `Curriculum` (Kevin a choisi de garder le dépôt).
 
 ## 📓 Journal des sessions
 
@@ -193,6 +196,21 @@ Carte des documents : `CLAUDE.md` (règles), `A-FAIRE.md` (actions hors code),
   consigne n'était pas centrée : son centrage par `transform` était écrasé
   par l'animation d'entrée.
 
+### 2026-10-25 (suite) — Terminal mobile, flèche vers le contact, clôture
+
+- Poussé : sonorités, écran titre, débordements (lot précédent).
+- Terminal : bouton d'envoi ↵ (Kevin ne pouvait pas envoyer une commande
+  depuis son téléphone), `enterKeyHint`, champ en 16 px sur écran tactile ;
+  les adresses longues (LinkedIn) élargissaient la fenêtre à 320 px, elles
+  passent maintenant à la ligne.
+- Île : triangle cyan au sol devant le personnage, qui pointe toujours vers
+  le contact et s'efface une fois arrivé ; la carte « Île explorée » se
+  ferme pour continuer à regarder.
+- Ces deux lots ont été commités directement sur `dev`, sans branche de
+  travail : écart au workflow, sans conséquence (fusion vers `staging` et
+  `main` faite comme d'habitude).
+- Capitalisé au coffre (voir Leçons).
+
 ## 🎓 Leçons apprises
 
 - **Vérifier la mise en ligne par les pages, pas par le statut du
@@ -217,3 +235,13 @@ Carte des documents : `CLAUDE.md` (règles), `A-FAIRE.md` (actions hors code),
   dans un worktree dédié à la branche cible (`git worktree add <dossier> dev`),
   ou avancer la référence avec `git update-ref <ref> <nouveau> <ancien>`, qui
   refuse si elle a bougé. (2026-10-25)
+
+- **Un champ qui ne s'envoie qu'avec Entrée bloque le téléphone** : le
+  terminal n'avait pas de bouton d'envoi ; tous les tests pressaient Entrée.
+  Coffre : `un-champ-qui-ne-s-envoie-qu-avec-entree-est-bloque-sur-telephone`.
+  Les deux leçons de cache CSS ci-dessus sont montées au coffre
+  (`un-cache-de-build-restaure-peut-servir-l-ancienne-feuille-de-style`).
+  (2026-10-25)
+- **`pkill -f "next start"` s'est tué lui-même** (code 144, build suivant
+  jamais lancé), et un `next-server` orphelin tenait le port : arrêter par
+  PID, vérifier par `ss -ltnp`. (2026-10-25)
