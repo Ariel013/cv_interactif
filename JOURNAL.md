@@ -21,12 +21,13 @@ Carte des documents : `CLAUDE.md` (règles), `A-FAIRE.md` (actions hors code),
 - **Version en prod** : https://iamariel.vercel.app (v1.0 + `vercel.json`),
   vérifiée le 2026-10-25 en ligne : pages FR/EN île et terminal en 200, `/`
   redirige selon la langue, PDF, image de partage, CSP et en-têtes servis,
-  île chargée sans erreur console. Correctif des flèches en ligne et vérifié.
+  île chargée sans erreur console. Flèches et joystick tactile en ligne,
+  vérifiés (émulation tactile 390 px : déplacement, page immobile).
 - **État des branches** : `main` = `staging` (amorce) ; `dev` porte l'île et
   le terminal ; dépôt distant `Ariel013/cv_interactif` (public), Vercel
   déploie `main`.
-- **Prochaine action** : pousser le joystick mobile (sur confirmation), puis
-  que Kevin l'essaie sur son téléphone.
+- **Prochaine action** : retour de Kevin sur le joystick, essayé sur son
+  téléphone.
 
 ## 📓 Journal des sessions
 
