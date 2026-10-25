@@ -890,3 +890,90 @@ dd {
   }
 }
 
+
+/* Flèches du joystick : petits triangles indigo dans l'anneau blanc. */
+.joystick-fleche {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 7px solid transparent;
+  pointer-events: none;
+}
+.joystick-haut {
+  top: 6px;
+  left: calc(50% - 7px);
+  border-bottom: 9px solid #6366f1;
+  border-top-width: 0;
+}
+.joystick-bas {
+  bottom: 6px;
+  left: calc(50% - 7px);
+  border-top: 9px solid #6366f1;
+  border-bottom-width: 0;
+}
+.joystick-gauche {
+  left: 6px;
+  top: calc(50% - 7px);
+  border-right: 9px solid #6366f1;
+  border-left-width: 0;
+}
+.joystick-droite {
+  right: 6px;
+  top: calc(50% - 7px);
+  border-left: 9px solid #6366f1;
+  border-right-width: 0;
+}
+.joystick-bouton {
+  position: relative;
+  z-index: 1;
+}
+
+/* Bouton son. */
+.hud-son {
+  min-width: 2.6rem;
+  justify-content: center;
+  padding-inline: 0.6rem;
+}
+
+/* Ouverture d'une carte : les éléments arrivent l'un après l'autre. */
+.carte > * {
+  animation: carte-element 420ms var(--sortie-quart) both;
+}
+.carte > :nth-child(2) { animation-delay: 60ms; }
+.carte > :nth-child(3) { animation-delay: 110ms; }
+.carte > :nth-child(4) { animation-delay: 160ms; }
+.carte > :nth-child(5) { animation-delay: 210ms; }
+.carte > :nth-child(6) { animation-delay: 250ms; }
+.carte > :nth-child(n + 7) { animation-delay: 290ms; }
+.carte > .carte-fermer {
+  animation: none;
+  /* Les éléments animés forment leur propre couche : le bouton reste devant. */
+  z-index: 2;
+}
+.carte-pastilles li {
+  animation: pastille 360ms var(--sortie-quart) both;
+}
+.carte-pastilles li:nth-child(2) { animation-delay: 40ms; }
+.carte-pastilles li:nth-child(3) { animation-delay: 80ms; }
+.carte-pastilles li:nth-child(4) { animation-delay: 120ms; }
+.carte-pastilles li:nth-child(n + 5) { animation-delay: 160ms; }
+@keyframes carte-element {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes pastille {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

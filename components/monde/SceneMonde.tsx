@@ -1,10 +1,11 @@
 "use client";
 
-import { Suspense, useEffect, useMemo, useRef } from "react";
+import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame, useThree, type ThreeEvent } from "@react-three/fiber";
 import { ContactShadows, Float, RoundedBox, Text } from "@react-three/drei";
 import { couleurs, RAYON_DECOUVERTE, RAYON_ILE, type Zone } from "./zones";
+import { sonPas } from "./sons";
 
 // La scène de l'île. Le personnage se déplace au clic sur le sol (ou au
 // toucher) et au clavier ; s'approcher d'un lieu le découvre.
@@ -202,7 +203,7 @@ function Socle({ zone, decouvert }: { zone: Zone; decouvert: boolean }) {
 function Panneau({ zone, decouvert, numero }: { zone: Zone; decouvert: boolean; numero: number }) {
   const regard = Math.atan2(-zone.x, -zone.z);
   return (
-    <group position={[zone.x, 0, zone.z]} rotation={[0, regard, 0]}>
+    <group rotation={[0, regard, 0]}>
       <RoundedBox args={[2.6, 1.8, 0.28]} radius={0.12} position={[0, 1.75, -1.1]} castShadow>
         <meshStandardMaterial color={decouvert ? zone.couleur : "#e2e8f0"} roughness={0.4} />
       </RoundedBox>
@@ -231,9 +232,95 @@ function Panneau({ zone, decouvert, numero }: { zone: Zone; decouvert: boolean; 
   );
 }
 
-function Jalon({ zone, decouvert, nature }: { zone: Zone; decouvert: boolean; nature: string }) {
+
+// Révélation d'un lieu : quand il passe de « inconnu » à « découvert », il
+// saute et fait un tour sur lui-même, et une onde et des éclats de sa couleur
+// partent du sol. Rien à l'affichage initial d'un lieu déjà découvert.
+function Revelation({ zone, decouvert, children }: { zone: Zone; decouvert: boolean; children: React.ReactNode }) {
+  const groupe = useRef<THREE.Group>(null);
+  const onde = useRef<THREE.Mesh>(null);
+  const eclats = useRef<THREE.InstancedMesh>(null);
+  const debut = useRef<number | null>(null);
+  const avant = useRef(decouvert);
+  // L'effet n'est monté que pendant l'animation : rien ne pèse sur la scène
+  // le reste du temps.
+  const [enCours, setEnCours] = useState(false);
+  const factice = useMemo(() => new THREE.Object3D(), []);
+  const directions = useMemo(
+    () =>
+      Array.from({ length: 16 }, (_, i) => {
+        const a = (i / 16) * Math.PI * 2;
+        return new THREE.Vector3(Math.cos(a) * (1.4 + (i % 3) * 0.5), 3 + (i % 4) * 0.8, Math.sin(a) * (1.4 + (i % 3) * 0.5));
+      }),
+    [],
+  );
+
+  useEffect(() => {
+    if (decouvert && !avant.current) {
+      debut.current = null;
+      setEnCours(true);
+    }
+    avant.current = decouvert;
+  }, [decouvert]);
+
+  useFrame((etat) => {
+    if (!enCours) return;
+    if (debut.current === null) debut.current = etat.clock.elapsedTime;
+    const g = groupe.current;
+    if (!g) return;
+    const t = etat.clock.elapsedTime - debut.current;
+    const d = 1.1;
+    if (t > d) {
+      g.scale.setScalar(1);
+      g.rotation.y = 0;
+      g.position.y = 0;
+      setEnCours(false);
+      return;
+    }
+    const k = t / d;
+    const sortie = 1 - Math.pow(1 - k, 3);
+    // Saut et tour complet, amortis.
+    g.rotation.y = sortie * Math.PI * 2;
+    g.scale.setScalar(1 + Math.sin(Math.min(1, k * 1.6) * Math.PI) * 0.28);
+    g.position.y = Math.sin(Math.min(1, k * 1.4) * Math.PI) * 0.6;
+    if (onde.current) {
+      onde.current.scale.setScalar(1 + sortie * 3.2);
+      (onde.current.material as THREE.MeshBasicMaterial).opacity = 0.7 * (1 - k);
+    }
+    if (eclats.current) {
+      directions.forEach((v, i) => {
+        factice.position.set(v.x * sortie, 0.4 + v.y * t - 4.5 * t * t, v.z * sortie);
+        factice.rotation.set(t * 8 + i, t * 6, 0);
+        factice.scale.setScalar(Math.max(0.01, 1 - k));
+        factice.updateMatrix();
+        eclats.current!.setMatrixAt(i, factice.matrix);
+      });
+      eclats.current.instanceMatrix.needsUpdate = true;
+    }
+  });
+
   return (
     <group position={[zone.x, 0, zone.z]}>
+      <group ref={groupe}>{children}</group>
+      {enCours && (
+        <>
+          <mesh ref={onde} rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.04, 0]}>
+            <ringGeometry args={[0.9, 1.05, 48]} />
+            <meshBasicMaterial color={zone.couleur} transparent opacity={0.7} />
+          </mesh>
+          <instancedMesh ref={eclats} args={[undefined, undefined, directions.length]}>
+            <boxGeometry args={[0.16, 0.16, 0.16]} />
+            <meshStandardMaterial color={zone.couleur} emissive={zone.couleur} emissiveIntensity={0.35} />
+          </instancedMesh>
+        </>
+      )}
+    </group>
+  );
+}
+
+function Jalon({ zone, decouvert, nature }: { zone: Zone; decouvert: boolean; nature: string }) {
+  return (
+    <group>
       <mesh position={[0, 0.2, 0]} castShadow receiveShadow>
         <cylinderGeometry args={[1, 1.1, 0.4, 32]} />
         <meshStandardMaterial color={decouvert ? zone.couleur : "#e2e8f0"} roughness={0.5} />
@@ -256,7 +343,7 @@ function Cristal({ zone, decouvert }: { zone: Zone; decouvert: boolean }) {
     if (ref.current) ref.current.rotation.y += delta * (decouvert ? 0.9 : 0.35);
   });
   return (
-    <group position={[zone.x, 0, zone.z]}>
+    <group>
       <Float speed={1.6} floatIntensity={0.6} rotationIntensity={0.15}>
         <mesh ref={ref} position={[0, 1.5, 0]} castShadow>
           <octahedronGeometry args={[0.75, 0]} />
@@ -286,7 +373,7 @@ function Portail({ zone, decouvert }: { zone: Zone; decouvert: boolean }) {
     if (anneau.current) anneau.current.rotation.z += delta * 0.6;
   });
   return (
-    <group position={[zone.x, 0, zone.z]}>
+    <group>
       <mesh ref={anneau} position={[0, 2.1, 0]} castShadow>
         <torusGeometry args={[1.7, 0.2, 20, 64]} />
         <meshStandardMaterial color={couleurs.indigo} emissive={couleurs.cyan} emissiveIntensity={decouvert ? 0.6 : 0.15} roughness={0.25} />
@@ -385,6 +472,7 @@ function Jeu({ zones, decouverts, titres, commandes, manette, surProche, surDepl
   const touches = useRef(new Set<string>());
   const proche = useRef<string | null>(null);
   const aBouge = useRef(false);
+  const cadencePas = useRef(0);
   const { camera, size } = useThree();
   const portrait = size.width < size.height;
   const decalageCamera = useMemo(() => new THREE.Vector3(0, portrait ? 24 : 17, portrait ? 19 : 15), [portrait]);
@@ -457,6 +545,14 @@ function Jeu({ zones, decouverts, titres, commandes, manette, surProche, surDepl
       }
     }
     enMouvement.current = pas.lengthSq() > 0;
+    // Un bruit de pas toutes les 0,3 s de marche.
+    if (enMouvement.current) {
+      cadencePas.current += delta;
+      if (cadencePas.current > 0.3) {
+        cadencePas.current = 0;
+        sonPas();
+      }
+    }
     if (enMouvement.current) {
       pas.normalize().multiplyScalar(Math.min(VITESSE * allure * delta, cible.current ? p.distanceTo(cible.current) : Infinity));
       p.add(pas);
@@ -500,11 +596,17 @@ function Jeu({ zones, decouverts, titres, commandes, manette, surProche, surDepl
       <Decor zones={zones} />
       {zones.map((z) => {
         const vu = decouverts.has(z.id);
-        if (z.type === "projet") return <Panneau key={z.id} zone={z} decouvert={vu} numero={++numero} />;
-        if (z.type === "parcours") return <Jalon key={z.id} zone={z} decouvert={vu} nature={z.nature === "formation" ? titres.natures.formation : titres.natures.experience} />;
-        if (z.type === "competence") return <Cristal key={z.id} zone={z} decouvert={vu} />;
-        if (z.type === "contact") return <Portail key={z.id} zone={z} decouvert={vu} />;
-        return null;
+        let lieu: React.ReactNode = null;
+        if (z.type === "projet") lieu = <Panneau zone={z} decouvert={vu} numero={++numero} />;
+        if (z.type === "parcours") lieu = <Jalon zone={z} decouvert={vu} nature={z.nature === "formation" ? titres.natures.formation : titres.natures.experience} />;
+        if (z.type === "competence") lieu = <Cristal zone={z} decouvert={vu} />;
+        if (z.type === "contact") lieu = <Portail zone={z} decouvert={vu} />;
+        if (!lieu) return null;
+        return (
+          <Revelation key={z.id} zone={z} decouvert={vu}>
+            {lieu}
+          </Revelation>
+        );
       })}
       <Personnage position={position} enMouvement={enMouvement} />
       <ContactShadows position={[0, 0.02, 0]} scale={RAYON_ILE * 2} resolution={1024} blur={2.4} opacity={0.35} far={6} />
