@@ -18,17 +18,16 @@ Carte des documents : `CLAUDE.md` (règles), `A-FAIRE.md` (actions hors code),
 
 *(Mis à jour le 2026-10-25.)*
 
-- **Version en prod** : https://iamariel.vercel.app (v1.0 + `vercel.json`),
-  vérifiée le 2026-10-25 en ligne : pages FR/EN île et terminal en 200, `/`
-  redirige selon la langue, PDF, image de partage, CSP et en-têtes servis,
-  île chargée sans erreur console. Flèches et joystick tactile en ligne,
-  vérifiés (émulation tactile 390 px : déplacement, page immobile).
+- **Version en prod** : https://iamariel.vercel.app, `main` au 2026-10-25,
+  vérifiée en ligne : CSS neuve servie (build sans cache), plus d'écran de
+  chargement, joystick à droite et cartes réduites en émulation tactile
+  390 px, aucune erreur console.
 - **État des branches** : `main` = `staging` (amorce) ; `dev` porte l'île et
   le terminal ; dépôt distant `Ariel013/cv_interactif` (public), Vercel
   déploie `main`.
-- **Prochaine action** : pousser le retrait du chargement et le build sans
-  cache (sur confirmation), vérifier le CSS servi, puis retour de Kevin sur
-  téléphone.
+- **Prochaine action** : retour de Kevin sur son téléphone (fluidité,
+  joystick, temps d'apparition de l'île) ; puis `/capitaliser` (leçons Vercel
+  et Turbopack vers le coffre).
 
 ## 📓 Journal des sessions
 
