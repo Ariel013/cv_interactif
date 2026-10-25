@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { preload } from "react-dom";
 import { cheminPdf, estLangue, lireContenu, nomAffiche } from "@/lib/contenu";
 import { lireTextes } from "@/lib/textes";
 import { Barre } from "@/components/Barre";
@@ -17,6 +18,8 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
   const { identite, alternance } = c;
   const mots = identite.nom.split(" ");
   const pdf = cheminPdf[lang];
+  // La police des textes 3D se télécharge dès le HTML, sans attendre three.js.
+  preload("/polices/Inter-ExtraBold.ttf", { as: "fetch", crossOrigin: "anonymous" });
 
   return (
     <>
