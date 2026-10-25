@@ -12,6 +12,10 @@ import { couleurs, RAYON_DECOUVERTE, RAYON_ILE, type Zone } from "./zones";
 const POLICE = "/polices/Inter-ExtraBold.ttf";
 const VITESSE = 7.5;
 
+// Direction du joystick tactile, de -1 à 1 sur chaque axe ; écrite par le
+// joystick, lue à chaque image (une référence, pas un état React).
+export type Manette = { x: number; z: number };
+
 export type Commandes = {
   // Lieu visé par la liste « Aller à… » : le personnage y marche.
   allerA: { x: number; z: number; jeton: number } | null;
@@ -27,6 +31,7 @@ type Props = {
     natures: { formation: string; experience: string };
   };
   commandes: Commandes;
+  manette: React.RefObject<Manette>;
   surProche: (id: string | null) => void;
   surDeplacement: () => void;
   surPret: () => void;
@@ -373,7 +378,7 @@ function Decor({ zones }: { zones: Zone[] }) {
   );
 }
 
-function Jeu({ zones, decouverts, titres, commandes, surProche, surDeplacement, demarre }: Omit<Props, "surPret" | "surPerte">) {
+function Jeu({ zones, decouverts, titres, commandes, manette, surProche, surDeplacement, demarre }: Omit<Props, "surPret" | "surPerte">) {
   const position = useRef(new THREE.Vector3(0, 0, 1.2));
   const cible = useRef<THREE.Vector3 | null>(null);
   const enMouvement = useRef(false);
@@ -436,6 +441,14 @@ function Jeu({ zones, decouverts, titres, commandes, surProche, surDeplacement, 
     if (t.has("ArrowDown") || t.has("KeyS")) pas.z += 1;
     if (t.has("ArrowLeft") || t.has("KeyA")) pas.x -= 1;
     if (t.has("ArrowRight") || t.has("KeyD")) pas.x += 1;
+    // Joystick tactile : direction et vitesse proportionnelles à l'inclinaison.
+    let allure = 1;
+    const m = manette.current;
+    if (pas.lengthSq() === 0 && m && Math.hypot(m.x, m.z) > 0.12) {
+      pas.set(m.x, 0, m.z);
+      allure = Math.min(1, Math.hypot(m.x, m.z));
+      cible.current = null;
+    }
     if (pas.lengthSq() === 0 && cible.current) {
       pas.subVectors(cible.current, p).setY(0);
       if (pas.length() < 0.15) {
@@ -445,7 +458,7 @@ function Jeu({ zones, decouverts, titres, commandes, surProche, surDeplacement, 
     }
     enMouvement.current = pas.lengthSq() > 0;
     if (enMouvement.current) {
-      pas.normalize().multiplyScalar(Math.min(VITESSE * delta, cible.current ? p.distanceTo(cible.current) : Infinity));
+      pas.normalize().multiplyScalar(Math.min(VITESSE * allure * delta, cible.current ? p.distanceTo(cible.current) : Infinity));
       p.add(pas);
       if (p.length() > RAYON_ILE - 1.2) p.setLength(RAYON_ILE - 1.2);
       if (!aBouge.current) {
@@ -528,6 +541,7 @@ export default function SceneMonde(props: Props) {
         decouverts={props.decouverts}
         titres={props.titres}
         commandes={props.commandes}
+        manette={props.manette}
         surProche={props.surProche}
         surDeplacement={props.surDeplacement}
         demarre={props.demarre}

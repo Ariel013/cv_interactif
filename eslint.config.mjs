@@ -6,9 +6,10 @@ const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
   // Three.js se pilote en mutant ses objets dans la boucle de rendu
-  // (useFrame) : c'est l'usage normal de React Three Fiber.
+  // (useFrame) : c'est l'usage normal de React Three Fiber. Le joystick écrit
+  // dans la même référence partagée, lue à chaque image.
   {
-    files: ["components/monde/SceneMonde.tsx"],
+    files: ["components/monde/SceneMonde.tsx", "components/monde/Joystick.tsx"],
     rules: { "react-hooks/immutability": "off" },
   },
   // Override default ignores of eslint-config-next.
