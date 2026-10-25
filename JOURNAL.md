@@ -18,12 +18,15 @@ Carte des documents : `CLAUDE.md` (règles), `A-FAIRE.md` (actions hors code),
 
 *(Mis à jour le 2026-10-25.)*
 
-- **Version en prod** : aucune.
+- **Version en prod** : https://iamariel.vercel.app (v1.0 + `vercel.json`),
+  vérifiée le 2026-10-25 en ligne : pages FR/EN île et terminal en 200, `/`
+  redirige selon la langue, PDF, image de partage, CSP et en-têtes servis,
+  île chargée sans erreur console. Correctif des flèches en attente de push.
 - **État des branches** : `main` = `staging` (amorce) ; `dev` porte l'île et
-  le terminal (2026-10-25) ; local seul, pas de dépôt distant.
-- **Prochaine action** : mise en ligne sur Vercel (dépôt GitHub public
-  `cv-interactif` + import Vercel), push sur confirmation de Kevin ; puis
-  mesurer le chargement sur un vrai téléphone.
+  le terminal ; dépôt distant `Ariel013/cv_interactif` (public), Vercel
+  déploie `main`.
+- **Prochaine action** : pousser le correctif des flèches (sur confirmation),
+  puis mesurer le chargement sur un vrai téléphone moyen.
 
 ## 📓 Journal des sessions
 
@@ -124,7 +127,22 @@ Carte des documents : `CLAUDE.md` (règles), `A-FAIRE.md` (actions hors code),
 - Vérifié en production locale : CSP active, aucune erreur console sur l'île
   et le terminal, PDF FR et EN d'une page.
 
+### 2026-10-25 (suite) — Mise en ligne
+
+- Premier déploiement Vercel : « No framework detected », seules les pièces de
+  `public/` répondaient, toutes les pages en 404. Corrigé par `vercel.json`
+  (`framework: nextjs`), poussé sur confirmation ; en ligne après ~2 min.
+- Vérification en ligne : les flèches ne déplaçaient plus le personnage après
+  « Commencer » : le focus allait au menu « Aller à… », qui avalait les
+  flèches. Le focus va désormais à l'île. Corrigé et vérifié en local.
+
 ## 🎓 Leçons apprises
+
+- **Vérifier la mise en ligne par les pages, pas par le statut du
+  déploiement** : Vercel a « réussi » un déploiement sans framework qui ne
+  servait aucune page. Déclarer le framework dans `vercel.json`. (2026-10-25)
+- **Un focus déplacé se teste avec les touches qu'il capte** : envoyer le
+  focus sur un `<select>` lui donne les flèches du jeu. (2026-10-25)
 
 - **Un build Turbopack peut servir une feuille de style périmée** après une
   réécriture complète de `globals.css` : le CSS servi ne contenait pas les
