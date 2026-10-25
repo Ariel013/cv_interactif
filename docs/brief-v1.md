@@ -54,7 +54,7 @@ interactif, livré en ligne. Livraison en trois lots, chacun montrable :
    Île-de-France · 3 sem. entreprise / 1 sem. école · disponible » ; deux actions :
    *Me contacter* et *Télécharger le CV (PDF)*. En haut à droite : FR/EN et
    Page/Terminal.
-2. **Le mur** : section sombre, le mur LED en 3D, un écran par projet (huit
+2. **Le mur** : section sombre, le mur LED en 3D, un écran par projet (sept
    projets). Survol ou focus : l'écran s'allume, le nom et la stack défilent.
    Clic : la fiche du projet s'ouvre à côté du mur (pas de modale) : ce qu'il
    fait, la stack, le lien démo ou dépôt.
@@ -104,17 +104,13 @@ remplacent le clavier.
 
 - **Faits** : seulement la copie publique du CV maître (ADR 0001), en deux
   langues (ADR 0005).
-- **Ce qui manque au CV maître pour ce site** (à y ajouter, validé par Kevin,
-  avant le lot 2) :
-  - une fiche courte par projet (problème, ce que j'ai fait, résultat), car le
-    CV maître n'a qu'une ligne par projet ;
-  - les faits qui font l'effet, s'ils sont vrais : Strongman utilisé en direct
-    au championnat national, le nombre d'écrans du mur LED ;
-  - les lignes « alternance » (rythme, disponibilité) aujourd'hui dans la
-    lettre seulement.
-- **Huit écrans du mur** : Strongman, FIBDA Bodybuilding, United Kizdom World
-  Congress, RAG-RH, NearYou, BlueLock, API de streaming simulé, Dashboard de
-  suivi académique.
+- **Fiches projets** : versées le 2026-10-25 dans `optimisation_cv`
+  (`cv/fiches-projets.json`, son ADR 0017), validées par Kevin. La zone et le
+  rythme d'alternance viennent de son `cv/lettre.json`.
+- **Sept écrans du mur** : Strongman, FIBDA Bodybuilding, United Kizdom World
+  Congress, RAG-RH, NearYou, API de streaming simulé, Dashboard de suivi
+  académique. BlueLock est retiré (lien mort ; Kevin, 2026-10-25) et reste une
+  ligne du parcours EPITECH.
 - **Textes d'interface** à écrire en FR et EN : boutons, titres de section,
   aide du terminal, messages d'état, aperçu de partage.
 
