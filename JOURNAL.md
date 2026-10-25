@@ -26,8 +26,9 @@ Carte des documents : `CLAUDE.md` (règles), `A-FAIRE.md` (actions hors code),
 - **État des branches** : `main` = `staging` (amorce) ; `dev` porte l'île et
   le terminal ; dépôt distant `Ariel013/cv_interactif` (public), Vercel
   déploie `main`.
-- **Prochaine action** : pousser l'écran de chargement (sur confirmation),
-  puis retour de Kevin sur téléphone.
+- **Prochaine action** : pousser le retrait du chargement et le build sans
+  cache (sur confirmation), vérifier le CSS servi, puis retour de Kevin sur
+  téléphone.
 
 ## 📓 Journal des sessions
 
@@ -159,6 +160,13 @@ Carte des documents : `CLAUDE.md` (règles), `A-FAIRE.md` (actions hors code),
 - Mesuré en émulation mobile à 1,6 Mbit/s (latence 150 ms) : écran de
   chargement à 0,7 s, écran titre avec l'île à 28 s. Sur un vrai 4G, non
   mesuré.
+
+### 2026-10-25 (suite) — Écran de chargement retiré
+
+- En ligne, l'écran de chargement est apparu sans mise en forme (CSS périmée
+  du cache Vercel). Kevin le trouve laid et demande de le retirer : l'écran
+  titre s'affiche de nouveau d'emblée, l'île apparaît en fondu dès qu'elle est
+  prête (signal réel, police 3D réduite et préchargée : conservés).
 
 ## 🎓 Leçons apprises
 
