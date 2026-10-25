@@ -21,12 +21,12 @@ Carte des documents : `CLAUDE.md` (règles), `A-FAIRE.md` (actions hors code),
 - **Version en prod** : https://iamariel.vercel.app (v1.0 + `vercel.json`),
   vérifiée le 2026-10-25 en ligne : pages FR/EN île et terminal en 200, `/`
   redirige selon la langue, PDF, image de partage, CSP et en-têtes servis,
-  île chargée sans erreur console. Correctif des flèches en attente de push.
+  île chargée sans erreur console. Correctif des flèches en ligne et vérifié.
 - **État des branches** : `main` = `staging` (amorce) ; `dev` porte l'île et
   le terminal ; dépôt distant `Ariel013/cv_interactif` (public), Vercel
   déploie `main`.
-- **Prochaine action** : pousser le correctif des flèches (sur confirmation),
-  puis mesurer le chargement sur un vrai téléphone moyen.
+- **Prochaine action** : pousser le joystick mobile (sur confirmation), puis
+  que Kevin l'essaie sur son téléphone.
 
 ## 📓 Journal des sessions
 
@@ -135,6 +135,17 @@ Carte des documents : `CLAUDE.md` (règles), `A-FAIRE.md` (actions hors code),
 - Vérification en ligne : les flèches ne déplaçaient plus le personnage après
   « Commencer » : le focus allait au menu « Aller à… », qui avalait les
   flèches. Le focus va désormais à l'île. Corrigé et vérifié en local.
+
+### 2026-10-25 (suite) — Joystick mobile
+
+- Retour de Kevin sur téléphone : déplacer le personnage faisait bouger la page.
+  Ajout d'un joystick tactile (écrans tactiles seulement, `pointer: coarse`),
+  vitesse selon l'inclinaison ; l'île bloque le défilement et le zoom de la
+  page (`touch-action: none`). Vérifié en émulation tactile : le personnage
+  avance, la page ne défile pas.
+- L'ancien CV (dépôt `Curriculum`) répond toujours sur GitHub Pages
+  (`ariel013.github.io/Curriculum`, « Interactive Resume ») ; Kevin garde le
+  dépôt.
 
 ## 🎓 Leçons apprises
 

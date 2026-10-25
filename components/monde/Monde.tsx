@@ -7,7 +7,8 @@ import type { Textes } from "@/lib/textes";
 import { construireZones, type Zone } from "./zones";
 import { sansBalisage } from "@/lib/texte";
 import { ErreurScene } from "./ErreurScene";
-import type { Commandes } from "./SceneMonde";
+import type { Commandes, Manette } from "./SceneMonde";
+import { Joystick } from "./Joystick";
 
 // Le CV : une île à explorer (ADR 0006). Le personnage découvre les lieux en
 // s'en approchant ; chaque découverte ouvre une carte. Sans WebGL, en
@@ -66,6 +67,7 @@ export function Monde({
   const [choix, setChoix] = useState("");
   const choixRef = useRef<HTMLSelectElement>(null);
   const ileRef = useRef<HTMLElement>(null);
+  const manette = useRef<Manette>({ x: 0, z: 0 });
   const aDecouvrir = zones.filter((z) => z.type !== "depart");
   const nbDecouverts = aDecouvrir.filter((z) => decouverts.has(z.id)).length;
   const zone = zones.find((z) => z.id === proche && z.id !== ferme) ?? null;
@@ -123,6 +125,7 @@ export function Monde({
             decouverts={decouverts}
             titres={{ nom: contenu.identite.nom, titre: contenu.identite.titre, quartiers, natures: textes.natures }}
             commandes={commandes}
+            manette={manette}
             surProche={surProche}
             surDeplacement={() => setABouge(true)}
             surPret={() => setPrete(true)}
@@ -209,9 +212,12 @@ export function Monde({
       </div>
       )}
 
+      {demarre && mode === "3d" && <Joystick manette={manette} libelle={textes.joystick} />}
+
       {demarre && !aBouge && !zone && (
         <p className="hud hud-consigne">
-          <span>{textes.consigne}</span>
+          <span className="consigne-souris">{textes.consigne}</span>
+          <span className="consigne-tactile">{textes.consigneTactile}</span>
           <kbd>↑</kbd>
           <kbd>←</kbd>
           <kbd>↓</kbd>
