@@ -58,8 +58,6 @@ export function Monde({
   const zones = useMemo(() => construireZones(contenu), [contenu]);
   const [mode, setMode] = useState<"attente" | "3d" | "fixe">("attente");
   const [prete, setPrete] = useState(false);
-  // Au-delà de ce délai, l'écran titre s'affiche même si l'île charge encore.
-  const [delaiDepasse, setDelaiDepasse] = useState(false);
   const [decouverts, setDecouverts] = useState<Set<string>>(new Set());
   const [proche, setProche] = useState<string | null>(null);
   const [ferme, setFerme] = useState<string | null>(null);
@@ -80,12 +78,6 @@ export function Monde({
     setMode(peutAfficher3D() ? "3d" : "fixe");
     setDecouverts(lireDecouverts());
   }, []);
-
-  useEffect(() => {
-    if (mode !== "3d" || prete) return;
-    const minuterie = setTimeout(() => setDelaiDepasse(true), 10000);
-    return () => clearTimeout(minuterie);
-  }, [mode, prete]);
 
   useEffect(() => {
     if (!zone) return;
@@ -146,29 +138,7 @@ export function Monde({
         </div>
       )}
 
-      {!prete && !delaiDepasse && (
-        <div className="chargement" role="status">
-          <span className="chargement-logo" aria-hidden="true">
-            {nomAffiche
-              .split(" ")
-              .map((m) => m[0])
-              .join("")}
-          </span>
-          <p className="chargement-nom">{nomAffiche}</p>
-          <p className="chargement-texte">{textes.chargement}</p>
-          <span className="chargement-barre" aria-hidden="true">
-            <span />
-          </span>
-          <p className="chargement-raccourcis">
-            <a href={pdf} download>
-              {textes.pdf}
-            </a>
-            <a href={`/${langue}/terminal`}>{textes.terminal}</a>
-          </p>
-        </div>
-      )}
-
-      {!demarre && (prete || delaiDepasse) && (
+      {!demarre && (
         <div className="titre-jeu">
           <p className="titre-jeu-nom">
             {contenu.identite.nom.split(" ").slice(0, -1).join(" ")} <span>{contenu.identite.nom.split(" ").at(-1)}</span>
