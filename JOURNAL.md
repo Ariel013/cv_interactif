@@ -165,6 +165,12 @@ Carte des documents : `CLAUDE.md` (règles), `A-FAIRE.md` (actions hors code),
 - **Vérifier la mise en ligne par les pages, pas par le statut du
   déploiement** : Vercel a « réussi » un déploiement sans framework qui ne
   servait aucune page. Déclarer le framework dans `vercel.json`. (2026-10-25)
+- **Le cache de build Turbopack a servi une feuille de style périmée en
+  production** (deuxième fois après le local) : HTML neuf (écran de
+  chargement), CSS d'avant (joystick à gauche, aucune règle du chargement).
+  Vercel restaure `.next` entre deux builds ; le build part désormais d'un
+  `.next` vide (`vercel.json`). Vérifier le CSS servi après chaque mise en
+  ligne. (2026-10-25)
 - **Un focus déplacé se teste avec les touches qu'il capte** : envoyer le
   focus sur un `<select>` lui donne les flèches du jeu. (2026-10-25)
 
