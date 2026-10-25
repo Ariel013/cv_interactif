@@ -25,9 +25,8 @@ Carte des documents : `CLAUDE.md` (règles), `A-FAIRE.md` (actions hors code),
 - **État des branches** : `main` = `staging` (amorce) ; `dev` porte l'île et
   le terminal ; dépôt distant `Ariel013/cv_interactif` (public), Vercel
   déploie `main`.
-- **Prochaine action** : retour de Kevin sur son téléphone (fluidité,
-  joystick, temps d'apparition de l'île) ; puis `/capitaliser` (leçons Vercel
-  et Turbopack vers le coffre).
+- **Prochaine action** : pousser sons et animations (sur confirmation),
+  retour de Kevin sur téléphone, puis `/capitaliser`.
 
 ## 📓 Journal des sessions
 
@@ -166,6 +165,19 @@ Carte des documents : `CLAUDE.md` (règles), `A-FAIRE.md` (actions hors code),
   du cache Vercel). Kevin le trouve laid et demande de le retirer : l'écran
   titre s'affiche de nouveau d'emblée, l'île apparaît en fondu dès qu'elle est
   prête (signal réel, police 3D réduite et préchargée : conservés).
+
+### 2026-10-25 (suite) — Flèches du joystick, sons, animations
+
+- Joystick : quatre flèches indigo dans l'anneau blanc.
+- Effets sonores synthétisés (Web Audio, aucun fichier) : pas, découverte,
+  retour sur un lieu, clic, fanfare de fin ; démarrent au clic sur
+  « Commencer » ; bouton 🔊/🔇 dans le tableau de bord, choix retenu.
+- Animations : un lieu découvert saute, tourne sur lui-même et lâche une onde
+  et des éclats de sa couleur (effet monté seulement pendant l'animation) ;
+  le contenu des cartes arrive en cascade.
+- Corrigé en route : le bouton de fermeture des cartes passait sous les
+  éléments animés (couche propre) ; l'effet d'éclats d'abord monté en
+  permanence (16 objets × 21 lieux) faisait planter le navigateur de test.
 
 ## 🎓 Leçons apprises
 
