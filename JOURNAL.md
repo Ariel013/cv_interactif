@@ -20,13 +20,14 @@ Carte des documents : `CLAUDE.md` (règles), `A-FAIRE.md` (actions hors code),
 
 - **Version en prod** : https://iamariel.vercel.app, `main` au 2026-10-25,
   vérifiée en ligne : CSS neuve servie (build sans cache), plus d'écran de
-  chargement, joystick à droite et cartes réduites en émulation tactile
-  390 px, aucune erreur console.
+  chargement, joystick à droite (avec flèches) et cartes réduites en
+  émulation tactile 390 px, sons et animations en ligne, aucune erreur
+  console.
 - **État des branches** : `main` = `staging` (amorce) ; `dev` porte l'île et
   le terminal ; dépôt distant `Ariel013/cv_interactif` (public), Vercel
   déploie `main`.
-- **Prochaine action** : pousser sons et animations (sur confirmation),
-  retour de Kevin sur téléphone, puis `/capitaliser`.
+- **Prochaine action** : retour de Kevin sur téléphone (son, joystick,
+  animations), choix du son actif ou coupé à l'arrivée, puis `/capitaliser`.
 
 ## 📓 Journal des sessions
 
