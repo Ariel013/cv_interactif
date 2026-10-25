@@ -63,6 +63,7 @@ export function Monde({
   const decouvertsRef = useRef<Set<string>>(new Set());
   const [proche, setProche] = useState<string | null>(null);
   const [ferme, setFerme] = useState<string | null>(null);
+  const [finFermee, setFinFermee] = useState(false);
   const [aBouge, setABouge] = useState(false);
   const [demarre, setDemarre] = useState(false);
   const [commandes, setCommandes] = useState<Commandes>({ allerA: null });
@@ -268,8 +269,11 @@ export function Monde({
         </aside>
       )}
 
-      {demarre && nbDecouverts === aDecouvrir.length && !zone && (
+      {demarre && nbDecouverts === aDecouvrir.length && !zone && !finFermee && (
         <aside className="carte carte-fin" role="status">
+          <button type="button" className="carte-fermer" onClick={() => setFinFermee(true)} aria-label={textes.fermer}>
+            ×
+          </button>
           <p className="carte-type">{textes.bravo}</p>
           <h2 className="carte-titre">{textes.toutVu}</h2>
           <a href={`mailto:${contenu.identite.email}`} className="hud-bouton hud-bouton-plein">
