@@ -64,6 +64,19 @@ Carte des documents : `CLAUDE.md` (règles), `A-FAIRE.md` (actions hors code),
   dans des worktrees : la copie principale d'`optimisation_cv` porte un
   travail en cours d'une autre session.
 
+- Fusion dans `optimisation_cv` : l'autre session a créé sa branche
+  `fix/texte-visible-lineaire` entre ma vérification (copie sur `dev`) et ma
+  fusion ; les deux fusions sont tombées sur sa branche. Rattrapé sans toucher
+  à sa copie : `dev` avancé en avance rapide sur ces fusions (vérifié par
+  `git log dev`), sa branche se retrouve partie du nouveau `dev`.
+- Version anglaise du CV maître et des fiches rédigée (brouillon dans un
+  worktree d'`optimisation_cv`, branche `feat/cv-anglais`), parité vérifiée :
+  même structure, mêmes liens, mêmes dates de fin.
+
 ## 🎓 Leçons apprises
 
-*(Aucune pour l'instant.)*
+- **Ne jamais fusionner dans la copie de travail d'une autre session.** La
+  branche courante peut changer entre la vérification et la commande. Fusionner
+  dans un worktree dédié à la branche cible (`git worktree add <dossier> dev`),
+  ou avancer la référence avec `git update-ref <ref> <nouveau> <ancien>`, qui
+  refuse si elle a bougé. (2026-10-25)
