@@ -152,6 +152,9 @@ dd {
 
 /* ---------- L'île : ouverture jouable ---------- */
 
+.monde:focus {
+  outline: none;
+}
 .monde {
   position: relative;
   height: calc(100svh - 4.1rem);
