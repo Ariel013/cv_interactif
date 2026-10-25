@@ -578,12 +578,13 @@ dd {
   max-width: 100%;
 }
 .titre-jeu-actions > * {
+  gap: 0.45rem;
   justify-content: center;
   text-align: center;
   white-space: normal;
   min-width: 0;
 }
-.titre-jeu-pdf {
+.titre-jeu-large {
   grid-column: 1 / -1;
   justify-self: center;
 }
