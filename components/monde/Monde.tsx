@@ -111,7 +111,7 @@ export function Monde({
     decouvertsRef.current = apres;
     const total = zones.filter((z) => z.type !== "depart").length;
     if (id !== "depart" && [...apres].filter((x) => x !== "depart").length === total) sonFin();
-    else sonDecouverte();
+    else sonDecouverte(zones.find((z) => z.id === id)?.type ?? "depart");
     try {
       localStorage.setItem(CLE_STOCKAGE, JSON.stringify([...apres]));
     } catch {}
@@ -174,11 +174,11 @@ export function Monde({
             >
               {nbDecouverts > 0 ? textes.reprendre : textes.jouer} <span aria-hidden="true">▶</span>
             </button>
-            <a href={pdf} className="hud-bouton" download>
-              {textes.pdf}
+            <a href={`/${langue}/terminal`} className="hud-bouton bouton-terminal">
+              <span aria-hidden="true">&gt;_</span> {textes.terminal}
             </a>
-            <a href={`/${langue}/terminal`} className="hud-bouton">
-              {textes.terminal}
+            <a href={pdf} className="hud-bouton titre-jeu-pdf" download>
+              {textes.pdf}
             </a>
           </div>
           <p className="titre-jeu-note">{textes.duree}</p>

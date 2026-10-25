@@ -26,8 +26,8 @@ Carte des documents : `CLAUDE.md` (règles), `A-FAIRE.md` (actions hors code),
 - **État des branches** : `main` = `staging` (amorce) ; `dev` porte l'île et
   le terminal ; dépôt distant `Ariel013/cv_interactif` (public), Vercel
   déploie `main`.
-- **Prochaine action** : retour de Kevin sur téléphone (son, joystick,
-  animations), choix du son actif ou coupé à l'arrivée, puis `/capitaliser`.
+- **Prochaine action** : pousser (sur confirmation) ; retour de Kevin sur
+  téléphone ; couleur du bouton terminal ; son actif ou coupé ; `/capitaliser`.
 
 ## 📓 Journal des sessions
 
@@ -179,6 +179,19 @@ Carte des documents : `CLAUDE.md` (règles), `A-FAIRE.md` (actions hors code),
 - Corrigé en route : le bouton de fermeture des cartes passait sous les
   éléments animés (couche propre) ; l'effet d'éclats d'abord monté en
   permanence (16 objets × 21 lieux) faisait planter le navigateur de test.
+
+### 2026-10-25 (suite) — Sonorités par quartier, écran titre
+
+- Une sonorité par quartier à la découverte : projets (arpège), parcours
+  (marimba), compétences (cloche de cristal), contact (accord), départ.
+- Écran titre : « Commencer » et « Mode terminal » sur une ligne, « CV en
+  PDF » dessous ; bouton terminal à l'allure d'un terminal (ardoise, cyan,
+  chasse fixe) en attendant le choix de couleur de Kevin.
+- Débordements chassés à 320, 360 et 390 px : libellés qui passent à la
+  ligne, « Aller à… » sur sa ligne en très petite largeur, bouton son et
+  « Y aller » de nouveau visibles sur téléphone (ils étaient masqués). La
+  consigne n'était pas centrée : son centrage par `transform` était écrasé
+  par l'animation d'entrée.
 
 ## 🎓 Leçons apprises
 
