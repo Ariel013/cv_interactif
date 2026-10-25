@@ -26,8 +26,8 @@ Carte des documents : `CLAUDE.md` (règles), `A-FAIRE.md` (actions hors code),
 - **État des branches** : `main` = `staging` (amorce) ; `dev` porte l'île et
   le terminal ; dépôt distant `Ariel013/cv_interactif` (public), Vercel
   déploie `main`.
-- **Prochaine action** : retour de Kevin sur le joystick, essayé sur son
-  téléphone.
+- **Prochaine action** : pousser l'écran de chargement (sur confirmation),
+  puis retour de Kevin sur téléphone.
 
 ## 📓 Journal des sessions
 
@@ -147,6 +147,18 @@ Carte des documents : `CLAUDE.md` (règles), `A-FAIRE.md` (actions hors code),
 - L'ancien CV (dépôt `Curriculum`) répond toujours sur GitHub Pages
   (`ariel013.github.io/Curriculum`, « Interactive Resume ») ; Kevin garde le
   dépôt.
+
+### 2026-10-25 (suite) — Écran de chargement
+
+- Retour de Kevin : l'île met du temps à apparaître, un visiteur pressé ne la
+  voit pas. Ajout d'un écran de chargement (logo, nom, barre, raccourcis PDF
+  et terminal) jusqu'à ce que l'île soit réellement prête (police des textes
+  3D chargée), puis l'écran titre ; au-delà de 10 s, l'écran titre s'affiche
+  quand même. Police 3D réduite aux caractères utilisés (327 Ko → 32 Ko) et
+  préchargée dès le HTML. Consigne retirée sur écran tactile.
+- Mesuré en émulation mobile à 1,6 Mbit/s (latence 150 ms) : écran de
+  chargement à 0,7 s, écran titre avec l'île à 28 s. Sur un vrai 4G, non
+  mesuré.
 
 ## 🎓 Leçons apprises
 
