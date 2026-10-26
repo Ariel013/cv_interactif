@@ -157,8 +157,10 @@ dd {
 }
 .monde {
   position: relative;
+  /* L'île occupe exactement l'écran sous la barre : la page ne défile
+     jamais (la molette, bloquée par l'île, ne la ferait défiler que sur la
+     barre, et le contenu glisserait dessous). */
   height: calc(100svh - 4.1rem);
-  min-height: 34rem;
   overflow: hidden;
   background:
     radial-gradient(120% 80% at 50% 0%, #e0e7ff 0%, transparent 60%),
@@ -539,10 +541,15 @@ dd {
   z-index: 5;
   inset: 0;
   display: grid;
-  place-content: center;
+  /* « safe » : sur un écran bas, le haut reste visible et l'écran titre
+     défile en lui-même au lieu d'être coupé. */
+  place-content: safe center;
   justify-items: center;
   gap: 0.9rem;
   padding: 2rem var(--gouttiere);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  touch-action: pan-y;
   text-align: center;
   background: radial-gradient(60% 55% at 50% 50%, rgb(248 250 252 / 0.9) 0%, rgb(248 250 252 / 0.55) 60%, transparent 100%);
   animation: entree 900ms 200ms var(--sortie-quart) both;
