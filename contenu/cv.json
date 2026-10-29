@@ -2,8 +2,8 @@
   "source": {
     "depot": "optimisation_cv",
     "ref": "dev",
-    "commit": "1c4c25d",
-    "empreinte": "af6bf65011353c90"
+    "commit": "8e139cb",
+    "empreinte": "1a5cc19a7b2ff0ab"
   },
   "fr": {
     "identite": {
@@ -15,7 +15,7 @@
         "Python",
         "RAG / LLM"
       ],
-      "localisation": "Île-de-France",
+      "localisation": "Paris (Île-de-France)",
       "telephone": "+33 7 59 55 49 25",
       "email": "kevin.sodjinou@epitech.eu",
       "liens": {
@@ -225,7 +225,7 @@
       {
         "periode": "Janv. 2024 – Juil. 2026",
         "structure": "EPITECH",
-        "poste": "Accompagnateur Pédagogique, Développeur & Formateur Fullstack / Data-IA",
+        "poste": "Accompagnateur Pédagogique - Développeur & Formateur Fullstack / Data-IA",
         "points": [
           {
             "texte": "Développé des solutions internes :",
@@ -341,7 +341,7 @@
         "Python",
         "RAG / LLM"
       ],
-      "localisation": "Île-de-France",
+      "localisation": "Paris (Île-de-France)",
       "telephone": "+33 7 59 55 49 25",
       "email": "kevin.sodjinou@epitech.eu",
       "liens": {
@@ -551,7 +551,7 @@
       {
         "periode": "Jan. 2024 – Jul. 2026",
         "structure": "EPITECH",
-        "poste": "Teaching Assistant, Fullstack / Data-AI Developer & Trainer",
+        "poste": "Teaching Assistant - Fullstack / Data-AI Developer & Trainer",
         "points": [
           {
             "texte": "Built internal tools:",
