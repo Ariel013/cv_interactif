@@ -2,8 +2,8 @@
   "source": {
     "depot": "optimisation_cv",
     "ref": "dev",
-    "commit": "fb42bb9",
-    "empreinte": "f4af4e6c599dd88d"
+    "commit": "6ad8196",
+    "empreinte": "390d641258e5fada"
   },
   "fr": {
     "identite": {
@@ -17,7 +17,7 @@
         "RAG / LLM"
       ],
       "localisation": "Paris, France",
-      "telephone": "07 59 55 49 25",
+      "telephone": "+33 7 59 55 49 25",
       "email": "kevin.sodjinou@epitech.eu",
       "liens": {
         "linkedin": "https://www.linkedin.com/in/ariel-kevin-sodjinou/",
@@ -37,7 +37,7 @@
       {
         "id": "strongman",
         "titre": "Strongman 2026",
-        "cadre": "Mission pour la FIBDA (Fédération Ivoirienne de Bodybuilding, Dynamophilie et Assimilés)",
+        "cadre": "Mission pour la FIBDA (Fédération Ivoirienne de Bodybuilding, Dynamophilie et Disciplines Associées)",
         "periode": "Sept. 2026",
         "ecran": "Logiciel d'arbitrage du championnat national de strongman de la FIBDA, utilisé en direct le 19 septembre 2026.",
         "probleme": "L'arbitrage tenait sur une page autonome qui gardait tout dans le navigateur d'un seul poste. Il fallait une application partagée entre la table de marque, la régie et les écrans publics, pour une compétition jouée en direct, un seul jour.",
@@ -364,7 +364,7 @@
       {
         "id": "strongman",
         "titre": "Strongman 2026",
-        "cadre": "Assignment for the FIBDA (Ivorian Federation of Bodybuilding, Powerlifting and Related Sports)",
+        "cadre": "Assignment for the FIBDA (Ivorian Federation of Bodybuilding, Powerlifting and Associated Disciplines)",
         "periode": "Sept. 2026",
         "ecran": "Judging software for the FIBDA national strongman championship, used live on 19 September 2026.",
         "probleme": "Judging ran on a standalone page that kept everything in the browser of a single computer. The scoring table, the control room and the public screens needed one shared application, for a competition held live on a single day.",
