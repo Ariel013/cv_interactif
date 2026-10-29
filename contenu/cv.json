@@ -2,21 +2,20 @@
   "source": {
     "depot": "optimisation_cv",
     "ref": "dev",
-    "commit": "6ad8196",
-    "empreinte": "390d641258e5fada"
+    "commit": "1c4c25d",
+    "empreinte": "af6bf65011353c90"
   },
   "fr": {
     "identite": {
       "nom": "ARIEL KEVIN SODJINOU",
       "titre": "Développeur Fullstack & IA",
       "technos": [
+        "MERN",
         "TypeScript",
         "Python",
-        "Node.js",
-        "FastAPI",
         "RAG / LLM"
       ],
-      "localisation": "Paris, France",
+      "localisation": "Île-de-France",
       "telephone": "+33 7 59 55 49 25",
       "email": "kevin.sodjinou@epitech.eu",
       "liens": {
@@ -26,8 +25,8 @@
       }
     },
     "telephoneLien": "+33759554925",
-    "resume": "Étudiant en Master à INSTA, je recherche une alternance en développement fullstack et IA. Pendant plus de 2 ans à EPITECH, j'ai développé des solutions et formé plus de 200 personnes. Développeur fullstack avec une appétence pour le backend, j'ai travaillé sur le développement web et les API, les pipelines de données et le déploiement de modèles de machine learning. J'aime transformer des problèmes complexes en solutions concrètes, robustes et maintenables.",
-    "accroche": "Étudiant en Master à INSTA, je cherche une alternance en développement fullstack et IA. En plus de 2 ans à EPITECH, j'ai développé des solutions et formé plus de 200 personnes. Orienté backend : API, pipelines de données, déploiement de modèles de machine learning. J'aime transformer des problèmes complexes en solutions concrètes.",
+    "resume": "Étudiant en Master 1 à INSTA, je recherche un contrat d’apprentissage en développement fullstack et en IA. Avec plus de 2 ans de pratique en développement à EPITECH, j’ai travaillé sur des projets web, la conception d’API, les pipelines de données et le déploiement de modèles de machine learning. Je souhaite mettre cette expérience au service de projets techniques au sein d'une équipe.",
+    "accroche": "Étudiant en Master 1 à INSTA, je recherche un contrat d’apprentissage en développement fullstack et en IA. Avec plus de 2 ans de pratique en développement à EPITECH, j’ai travaillé sur des projets web, la conception d’API, les pipelines de données et le déploiement de modèles de machine learning. Je souhaite mettre cette expérience au service de projets techniques au sein d'une équipe.",
     "alternance": {
       "region": "Île-de-France",
       "rythme": "3 semaines en entreprise et 1 semaine en formation",
@@ -37,7 +36,7 @@
       {
         "id": "strongman",
         "titre": "Strongman 2026",
-        "cadre": "Mission pour la FIBDA (Fédération Ivoirienne de Bodybuilding, Dynamophilie et Disciplines Associées)",
+        "cadre": "Mission pour la FIBDA (Fédération Ivoirienne de Bodybuilding et Disciplines Associées)",
         "periode": "Sept. 2026",
         "ecran": "Logiciel d'arbitrage du championnat national de strongman de la FIBDA, utilisé en direct le 19 septembre 2026.",
         "probleme": "L'arbitrage tenait sur une page autonome qui gardait tout dans le navigateur d'un seul poste. Il fallait une application partagée entre la table de marque, la régie et les écrans publics, pour une compétition jouée en direct, un seul jour.",
@@ -241,7 +240,7 @@
             "sous": []
           },
           {
-            "texte": "Réalisé des revues de code et évalué les projets étudiants (ETL, Scikit-learn / Keras, API, fullstack) ; organisé hackathons et game jams.",
+            "texte": "Réalisé des revues de code et évalué les projets étudiants (ETL, Scikit-learn / Keras, API, fullstack) ; organisé hackathons.",
             "sous": []
           }
         ]
@@ -292,11 +291,11 @@
       },
       {
         "famille": "IA & Data",
-        "liste": "Pipelines RAG, agents IA, Pandas, NumPy, Scikit-learn, TensorFlow / Keras, NLP, Kafka"
+        "liste": "Pipelines RAG, ETL, Pandas, NumPy, Scikit-learn, TensorFlow / Keras, NLP, Kafka"
       },
       {
         "famille": "Bases de données",
-        "liste": "PostgreSQL, MySQL, MongoDB, SQLite, Turso, ChromaDB, pgvector, Prisma, Drizzle"
+        "liste": "PostgreSQL, MySQL, MongoDB, SQLite, Turso, ChromaDB, pgvector, Prisma"
       },
       {
         "famille": "DevOps & Qualité",
@@ -325,10 +324,10 @@
       "CodinGame Python 3 et Coding Speed Gold",
       "Postman Student Expert",
       "Network Security Expert 1 & 2, *Fortinet*",
-      "PMP (Project Management Professional), *GoMyCode*"
+      "Formation PMP (Project Management Professional), *GoMyCode*"
     ],
     "langues": [
-      "Français (courant)",
+      "Français (natif)",
       "Anglais (B2, Duolingo English Test)"
     ]
   },
@@ -337,13 +336,12 @@
       "nom": "ARIEL KEVIN SODJINOU",
       "titre": "Fullstack & AI Developer",
       "technos": [
+        "MERN",
         "TypeScript",
         "Python",
-        "Node.js",
-        "FastAPI",
         "RAG / LLM"
       ],
-      "localisation": "Paris, France",
+      "localisation": "Île-de-France",
       "telephone": "+33 7 59 55 49 25",
       "email": "kevin.sodjinou@epitech.eu",
       "liens": {
@@ -353,8 +351,8 @@
       }
     },
     "telephoneLien": "+33759554925",
-    "resume": "Master's student at INSTA, I am looking for a work-study position (alternance) in fullstack and AI development. Over more than 2 years at EPITECH, I built software and trained more than 200 people. A fullstack developer with a taste for the backend, I have worked on web development and APIs, data pipelines and the deployment of machine learning models. I like turning complex problems into concrete, robust and maintainable solutions.",
-    "accroche": "Master's student at INSTA, looking for a work-study position in fullstack and AI development. Over more than 2 years at EPITECH, I built software and trained more than 200 people. Backend-minded: APIs, data pipelines, machine learning model deployment. I like turning complex problems into concrete solutions.",
+    "resume": "First-year Master's student at INSTA, I am looking for an apprenticeship contract in fullstack and AI development. With more than 2 years of development practice at EPITECH, I have worked on web projects, API design, data pipelines and the deployment of machine learning models. I want to put this experience to work on technical projects within a team.",
+    "accroche": "First-year Master's student at INSTA, looking for an apprenticeship contract in fullstack and AI development. With more than 2 years of development practice at EPITECH, I have worked on web projects, API design, data pipelines and machine learning model deployment. I want to put this experience to work on technical projects within a team.",
     "alternance": {
       "region": "Île-de-France (Paris region)",
       "rythme": "3 weeks in the company, 1 week at school",
@@ -364,7 +362,7 @@
       {
         "id": "strongman",
         "titre": "Strongman 2026",
-        "cadre": "Assignment for the FIBDA (Ivorian Federation of Bodybuilding, Powerlifting and Associated Disciplines)",
+        "cadre": "Assignment for the FIBDA (Ivorian Federation of Bodybuilding and Associated Disciplines)",
         "periode": "Sept. 2026",
         "ecran": "Judging software for the FIBDA national strongman championship, used live on 19 September 2026.",
         "probleme": "Judging ran on a standalone page that kept everything in the browser of a single computer. The scoring table, the control room and the public screens needed one shared application, for a competition held live on a single day.",
@@ -568,7 +566,7 @@
             "sous": []
           },
           {
-            "texte": "Reviewed code and assessed student projects (ETL, Scikit-learn / Keras, APIs, fullstack); ran hackathons and game jams.",
+            "texte": "Reviewed code and assessed student projects (ETL, Scikit-learn / Keras, APIs, fullstack); ran hackathons.",
             "sous": []
           }
         ]
@@ -619,11 +617,11 @@
       },
       {
         "famille": "AI & Data",
-        "liste": "RAG pipelines, AI agents, Pandas, NumPy, Scikit-learn, TensorFlow / Keras, NLP, Kafka"
+        "liste": "RAG pipelines, ETL, Pandas, NumPy, Scikit-learn, TensorFlow / Keras, NLP, Kafka"
       },
       {
         "famille": "Databases",
-        "liste": "PostgreSQL, MySQL, MongoDB, SQLite, Turso, ChromaDB, pgvector, Prisma, Drizzle"
+        "liste": "PostgreSQL, MySQL, MongoDB, SQLite, Turso, ChromaDB, pgvector, Prisma"
       },
       {
         "famille": "DevOps & Quality",
@@ -652,10 +650,10 @@
       "CodinGame Python 3 and Coding Speed Gold",
       "Postman Student Expert",
       "Network Security Expert 1 & 2, *Fortinet*",
-      "PMP (Project Management Professional), *GoMyCode*"
+      "PMP (Project Management Professional) training, *GoMyCode*"
     ],
     "langues": [
-      "French (fluent)",
+      "French (native)",
       "English (B2, Duolingo English Test)"
     ]
   }
