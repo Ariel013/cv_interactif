@@ -175,16 +175,16 @@ export function Monde({
             >
               {nbDecouverts > 0 ? textes.reprendre : textes.jouer} <span aria-hidden="true">▶</span>
             </button>
+            {/* L'autre expérience : le portfolio classique, pour qui veut
+                aller droit aux projets. Un seul lien suffit alors sur le CV. */}
+            <a href={portfolioClassique} className="hud-bouton bouton-portfolio">
+              {textes.portfolio} <span aria-hidden="true">→</span>
+            </a>
             <a href={`/${langue}/terminal`} className="hud-bouton bouton-terminal">
               <span aria-hidden="true">&gt;_</span> {textes.terminal}
             </a>
             <a href={pdf} className="hud-bouton" download>
               {textes.pdf}
-            </a>
-            {/* L'autre expérience : le portfolio classique, pour qui veut
-                aller droit aux projets. Un seul lien suffit alors sur le CV. */}
-            <a href={portfolioClassique} className="hud-bouton">
-              {textes.portfolio} <span aria-hidden="true">→</span>
             </a>
           </div>
           <p className="titre-jeu-note">{textes.duree}</p>

@@ -16,7 +16,7 @@ Carte des documents : `CLAUDE.md` (règles), `A-FAIRE.md` (actions hors code),
 
 ## 📍 État actuel & prochaine action
 
-*(Mis à jour le 2026-10-25.)*
+*(Mis à jour le 2026-10-31.)*
 
 - **Version en prod** : https://iamariel.vercel.app, `main` = `staging` =
   `dev` au 2026-10-25 (commit `cf0a650`). Vérifié en ligne : bouton d'envoi
@@ -210,6 +210,18 @@ Carte des documents : `CLAUDE.md` (règles), `A-FAIRE.md` (actions hors code),
   travail : écart au workflow, sans conséquence (fusion vers `staging` et
   `main` faite comme d'habitude).
 - Capitalisé au coffre (voir Leçons).
+
+### 2026-10-31 — Écran titre : portfolio à côté de « Commencer »
+
+- Demande de Kevin : « Portfolio classique » au premier rang, à côté de
+  « Commencer », à la même hauteur ; « Mode terminal » descend à côté du PDF.
+  Couleurs en trois niveaux : dégradé plein (exploration), blanc cerclé
+  d'indigo (portfolio), terminal ardoise et PDF neutre en taille courante.
+  Kevin garde le terminal sombre.
+- Téléphone : l'écran titre défilait sur écran bas (642 px de contenu pour
+  502 visibles à 320 × 568). Resserré sous 420 px de large et 760 px de haut :
+  tient sans défiler à 320 × 548, 360 × 560, 375 × 548, 390 × 664, FR et EN
+  (mesuré en émulation, pas sur appareil réel).
 
 ## 🎓 Leçons apprises
 
