@@ -28,6 +28,10 @@ Carte des documents : `CLAUDE.md` (règles), `A-FAIRE.md` (actions hors code),
   contact visible dès le début de l'exploration.
 - **Non vérifié** : pas de zoom iOS sur le champ du terminal (pas d'iPhone
   testé) ; volume et rendu des sons sur appareil réel.
+- **2026-10-31** : écran titre réorganisé (portfolio à côté de
+  « Commencer », terminal et PDF au second rang), tenue sans défilement sur
+  téléphone à écran bas ; en ligne, CSS servi vérifié. `main` = `staging` =
+  `dev` (commit `f73cedf`). Non vérifié : sur le téléphone de Kevin.
 - **Prochaine action** : aucune en cours. Pistes si Kevin relance : envoyer
   le lien dans les candidatures, désactiver GitHub Pages sur l'ancien dépôt
   `Curriculum` (Kevin a choisi de garder le dépôt).
@@ -222,6 +226,10 @@ Carte des documents : `CLAUDE.md` (règles), `A-FAIRE.md` (actions hors code),
   502 visibles à 320 × 568). Resserré sous 420 px de large et 760 px de haut :
   tient sans défiler à 320 × 548, 360 × 560, 375 × 548, 390 × 664, FR et EN
   (mesuré en émulation, pas sur appareil réel).
+- Ligne de durée : « Environ 3 minutes pour explorer l'île » (EN « to
+  explore the island ») ; Kevin a préféré « l'île » à « l'île aux
+  compétences », plus juste (l'île montre aussi projets et parcours). En
+  ligne, vérifié (texte et CSS servis).
 
 ## 🎓 Leçons apprises
 
@@ -257,3 +265,9 @@ Carte des documents : `CLAUDE.md` (règles), `A-FAIRE.md` (actions hors code),
 - **`pkill -f "next start"` s'est tué lui-même** (code 144, build suivant
   jamais lancé), et un `next-server` orphelin tenait le port : arrêter par
   PID, vérifier par `ss -ltnp`. (2026-10-25)
+- **Un écran mobile se teste à la hauteur visible, pas seulement à la
+  largeur** : l'écran titre, « vérifié à 320, 360, 390 px », défilait à
+  320 × 568 (642 px de contenu pour 502 visibles). Mesurer `scrollHeight`
+  contre `clientHeight` à 320 × 548, 375 × 548, 390 × 664. Coffre :
+  `un-ecran-mobile-se-teste-a-la-hauteur-visible-pas-seulement-a-la-largeur`.
+  (2026-10-31)
